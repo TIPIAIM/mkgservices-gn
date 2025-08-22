@@ -429,19 +429,6 @@ const fallback =
 
 const ITEMS = [
   {
-    key: "amenagement",
-    title: "Aménagement",
-    icon: <FaTools />,
-    cover: imagess?.amenagement_exterieux3|| imagess?.businesskey3 || fallback,
-    overlayTitle: "Conception & réalisation",
-    bullets: [
-      "Parcs d'attractions",
-      "Espaces de loisirs",
-      "Sites touristiques",
-      "Jardins urbains / zones boisées",
-    ],
-  },
-  {
     key: "divertissement",
     title: "Divertissement professionnel",
     icon: <FaTheaterMasks />,
