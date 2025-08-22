@@ -491,19 +491,23 @@ const DomainesExpertiseGrid = memo(function DomainesExpertiseGrid() {
 
   return (
     <>
-      <SEO
-        title="Domaines d’expertise — MK Global Services GN"
-        description="Aménagement d’espaces, divertissement professionnel, décoration lumineuse et création d’espaces de loisir : découvrez les domaines d’expertise de MK Global Services GN."
-        image={ogImage}
-        url={pageUrl}
-        keywords={[
-          "aménagement Guinée",
-          "divertissement entreprise Conakry",
-          "décoration lumineuse",
-          "espaces de loisir",
-          "MK Global Services",
-        ]}
-      >
+   <SEO
+  title="Domaines d’expertise — MK Global Services GN"
+  description="MK Global Services GN accompagne les acteurs publics et privés en Guinée dans l’aménagement et l’éco-construction, l’événementiel et les activations, les décors lumineux ainsi que le courtage et négoce. Découvrez nos domaines d’expertise."
+  image={ogImage}
+  url={pageUrl}
+  keywords={[
+    "MK Global Services GN",
+    "aménagement Guinée",
+    "éco-construction",
+    "événementiel Conakry",
+    "activations de marque",
+    "décors lumineux Guinée",
+    "street marketing",
+    "courtage négoce",
+  ]}
+>
+
         <link rel="canonical" href={pageUrl} />
       </SEO>
       <div>

@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import React, { lazy, memo } from "react";
-import Services from "./composant/services/Services";
-import Projet from "./composant/services/Projet";
+import React, { lazy } from "react";
+ import Projet from "./composant/services/ProjetMKGS";
 import Contact from "./composant/contact/Contact";
 import Footer from "./composant/Acueil/Footer";
 import MonQRCode from "./MonQRCode";
@@ -23,8 +22,7 @@ function App() {
 
         <Route path="/domaines" element={<DomainesIntervention />} />
 
-        <Route path="projet" element={<Services />} />
-
+ 
         <Route path="contact" element={<Contact />} />
         <Route path="projets" element={<Projet />} /> {/*retire àpres*/}
         <Route path="MonQRCode" element={<MonQRCode />} />

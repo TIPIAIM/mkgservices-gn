@@ -18,12 +18,21 @@ import Homemk from "./Homemk";
 // -- Palette, navIcons et lazy-load comme dans ta base --
 const navIcons = {
   "/": Home,
-  "/presentation": Users,
-  "/domaines": Layers,
   "/projets": Briefcase,
   "/contact": Phone,
-};
 
+  "/domaines": Layers,
+  "/presentation": Users,
+};
+{
+  /**
+     { to: "/", label: "Accueil" },
+    { to: "/projets", label: "Références" },
+    { to: "/contact", label: "Contact" },
+    { to: "/domaines", label: "Domaines d’intervention" },
+    { to: "/presentation", label: "Apropos" },
+  */
+}
 // ---- ANIMATIONS ----
 const glowLogo = keyframes`
   0%, 100% { filter: drop-shadow(0 0 0px ${colors.white}); }
@@ -206,10 +215,10 @@ const Navbar = memo(() => {
 
   const links = [
     { to: "/", label: "Accueil" },
-    { to: "/domaines", label: "Domaines d’intervention" },
-    { to: "/presentation", label: "Apropos" },
     { to: "/projets", label: "Références" },
     { to: "/contact", label: "Contact" },
+    { to: "/domaines", label: "Domaines d’intervention" },
+    { to: "/presentation", label: "Apropos" },
   ];
 
   // Animation shake (pour icon sur hover)

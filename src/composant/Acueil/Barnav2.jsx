@@ -207,10 +207,10 @@ const Navbard= memo(() => {
 
   const links = [
     { to: "/", label: "Accueil" },
-    { to: "/domaines", label: "Domaines d’intervention" },
-    { to: "/presentation", label: "Apropos" },
     { to: "/projets", label: "Références" },
     { to: "/contact", label: "Contact" },
+    { to: "/domaines", label: "Domaines d’intervention" },
+    { to: "/presentation", label: "Apropos" },
   ];
 
   // Animation shake (pour icon sur hover)
