@@ -2,7 +2,7 @@ import React, { useRef, Suspense, lazy } from "react";
 import { motion, useInView } from "framer-motion";
 import styled from "styled-components";
 import colors from "../../Styles/colors";
-import Barnaventete from "../Acueil/Barnaventete";
+import Barnaventete from "../Acueil/Barnav2";
 import { imagess } from "../../assets/imagess";
 
 const SEO = lazy(() => import("../../SEO"));

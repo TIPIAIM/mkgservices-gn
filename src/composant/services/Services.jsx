@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense, useMemo } from "react";
+import React, {  lazy, Suspense, useMemo } from "react";
 import styled from "styled-components";
 import { Globe, FileText, PenTool, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 // Chargement différé des composants enfants
 const Mission = lazy(() => import("./Mission"));
 const Accueilpourservice = lazy(() => import("./Accueilpourservice1"));
-const Temoignage = lazy(() => import("./Temoignge"));
+const Temoignage = lazy(() => import("./TemoigngeMKGS3"));
 const Realisation3 = lazy(() => import("./Realisation3"));
 
 // Styles corrigés avec $ pour les props styled-components

@@ -21,7 +21,7 @@ const SEOMemo = memo((props) => {
   );
 });
 const SEO = lazy(() => import("../../SEO"));
-const Barnaventete = lazy(() => import("../Acueil/Barnaventete"));
+const Barnaventete = lazy(() => import("../Acueil/Barnav2"));
 
 // ---- ANIMATION FOND TEAM ----
 const AnimatedBg = styled.div`
@@ -30,9 +30,9 @@ const AnimatedBg = styled.div`
   z-index: 0;
   pointer-events: none;
   background: linear-gradient(
-    -150deg,
-    ${colors.overlay} 85%,
-    ${colors.accentGold} 8%
+    -90deg,
+    ${colors.primar} 50%,
+    ${colors.secondar} 08%
   );
   &:before {
     content: "";
@@ -83,7 +83,7 @@ const ContentGrid = styled.div`
 `;
 const VisualSection = styled(motion.div)`
   position: relative;
-  background: ${colors.accentTurquoise};
+  background: ${colors.secondary};
   border-radius: 0.1rem;
   overflow: hidden;
   min-height: 280px;
@@ -127,7 +127,7 @@ const TextContent = styled.div`
 const SectionTitle = styled(motion.h1)`
   font-size: 2rem;
   font-weight: 750;
-  color: ${colors.accentGold};
+  color: ${colors.secondar};
   margin-bottom: 1.5rem;
   line-height: 1.3;
   @media (min-width: 480px) {
@@ -151,7 +151,7 @@ const Highlight = styled.span`
     left: 0;
     width: 0;
     height: 3px;
-    background: ${colors.accentGold};
+    background: ${colors.primar};
     transition: width 0.4s ease;
   }
   &:hover::before {
@@ -177,40 +177,25 @@ const StatsGrid = styled.div`
 `;
 const StatCard = styled(motion.div)`
   padding: 1rem;
-  background: ${colors.accentTurquoise};
+  background: ${colors.primary};
   border-radius: 0.1rem;
   // border: 1px solid rgba(169, 111, 51, 0.1);
   transition: all 0.03s ease;
   &:hover {
-    background: ${colors.overlay};
+    background: ${colors.primar};
     //  color: ${colors.white};
     transform: translateY(-5px);
   }
 `;
-const StatValue = styled.div`
-  font-size: 1.2rem;
-  color: ${colors.accentGold};
-  font-weight: 700;
-  margin-bottom: 0.1rem;
-  display: flex;
-  align-items: center;
 
-  gap: 0.8rem;
-`;
-const StatLabel = styled.div`
-  color: ${colors.white};
-  font-size: 0.6rem;
-  font-weight: 500;
-  opacity: 0.9;
-  &:hover {
-    // color: ${colors.accentTurquoise};
-  }
-`;
-// --- Team Section ---
 const TeamGrid = styled.div`
   display: grid;
   gap: 1.5rem;
   padding: 0 1rem;
+  max-width: 1080px;
+  margin: 0 auto; /* ✅ centre le grid */
+  justify-content: center; /* ✅ aligne le contenu */
+
   @media (min-width: 480px) {
     gap: 1.5rem;
     padding: 0 1.5rem;
@@ -223,8 +208,30 @@ const TeamGrid = styled.div`
     gap: 2.5rem;
     padding: 0 3rem;
   }
+
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 `;
+
+const StatValue = styled.div`
+  font-size: 1.2rem;
+  color: ${colors.accentGold};
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+`;
+const StatLabel = styled.div`
+  color: ${colors.white};
+  font-size: 0.7rem;
+  font-weight: 500;
+  opacity: 0.9;
+  &:hover {
+    // color: ${colors.accentTurquoise};
+  }
+`;
+
 const TeamMember = styled(motion.div)`
   background: #f4f5f1;
   border-radius: 0.1rem;
@@ -251,7 +258,7 @@ const TeamSection = styled.div`
   }
 `;
 const TeamTitle = styled(SectionTitle)`
-  color: ${colors.error};
+  color: ${colors.secondar};
   text-align: center;
   margin-bottom: 4rem;
   margin-top: 2rem;
@@ -261,13 +268,13 @@ const TeamTitle = styled(SectionTitle)`
   }
   background: linear-gradient(
     -150deg,
-    ${colors.overlay} 94%,
-    ${colors.accentGold} 10%
+    ${colors.secondar} 94%,
+    ${colors.primar} 10%
   );
 `;
 const MemberPhoto = styled.img`
   width: 100%;
-  height: 300px;
+  height: 400px;
   object-fit: cover;
   object-position: top;
   border-bottom: 5px solid #b96f33;
@@ -277,6 +284,7 @@ const MemberInfo = styled.div`
   padding: 1.8rem;
   text-align: center;
   background: ${colors.overlayAlpha};
+  border-radius: 0 2rem;
 `;
 const MemberName = styled.h3`
   color: ${colors.accentGold};
@@ -293,23 +301,20 @@ const MemberRole = styled.p`
 // --- Le composant principal ---
 const APropos = () => {
   // SEO infos
-  const seoImg = imagess.coris_imàge_ki_somme || imagess.coris_imàge_ki_somme;
-  const seoTitle = "Qui sommes-nous ? | Cauris Investment";
+  const seoImg = imagess.Pour_les_Family_day4;
+  const seoTitle = "Qui sommes-nous ? | Mk global Services GN";
   const seoDescription =
     "Cauris Investment est une holding spécialisée dans l’investissement immobilier en Guinée : acquisition, développement, gestion d’actifs, et structuration de partenariats. Découvrez notre équipe et nos valeurs.";
   const seoKeywords = [
     "Cauris Investment",
     "Khoris",
-    "choris",
-    "cauris",
-    "immobilier Guinée",
-    "promotion immobilière",
+
     "gestion locative",
     "investissement immobilier",
     "foncier",
     "équipe Cauris",
   ];
-  const seoUrl = "https://www.caurisinvestment.com/presentation";
+  const seoUrl = "https://www.mkgservices-gn.com/presentation";
 
   return (
     <>
@@ -345,28 +350,28 @@ const APropos = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              . Qui <Highlight> sommes-nous .</Highlight>
+              . Qui <Highlight> sommes-nous ?</Highlight>
             </SectionTitle>
             <Description
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              Cauris <Highlight>Investment</Highlight> , une holding spécialisée
-              dans l'investissement immobilier
-              <Highlight> intégral </Highlight> : acquisition, développement,
-              gestion d'actifs, et structuration de partenariats
-              <Highlight> d'investissement en Guinée. </Highlight> <br />
-              Nous intervenons sur toute{" "}
-              <Highlight>la chaîne de valeur </Highlight> : du foncier à la
-              gestion locative, en passant par la
-              <Highlight> promotion </Highlight> immobilière, la vente en bloc
-              ou au détail, et la mise en{" "}
-              <Highlight>
-                {" "}
-                place de véhicules d'investissement dédiés{" "}
-              </Highlight>
-              .
+              <strong>MK Global Services GN</strong> accompagne les acteurs
+              publics et privés dans la{" "}
+              <Highlight>conception, l’aménagement</Highlight> et l’
+              <Highlight>animation</Highlight> d’espaces de vie et de loisirs en
+              Guinée. Nous réunissons création, production et exploitation pour
+              livrer des expériences mémorables : parcs temporaires, family
+              days, activations de marque,{" "}
+              <Highlight>décorations lumineuses</Highlight> et zones ludiques
+              clés en main.
+              <br />
+              <Highlight> Notre approche allie </Highlight>{" "}
+              <Highlight>sécurité, accessibilité, écoresponsabilité</Highlight>{" "}
+              et performance opérationnelle. De l’étude à l’exploitation, nous
+              orchestrons les expertises (technique, logistique, artistique)
+              pour garantir un résultat durable et mesurable.
             </Description>
             <StatsGrid>
               <StatCard
@@ -375,9 +380,9 @@ const APropos = () => {
               >
                 <StatValue>Notre vision</StatValue>
                 <StatLabel>
-                  Contribuer à réduire le déficit en logements et
-                  infrastructures de services tout en offrant aux investisseurs
-                  des rendements compétitifs adossés à des actifs réels
+                  Transformer durablement les espaces en expériences positives
+                  pour les familles, les collaborateurs et les publics, partout
+                  en Guinée.{" "}
                 </StatLabel>
               </StatCard>
               <StatCard
@@ -386,9 +391,10 @@ const APropos = () => {
               >
                 <StatValue>Notre mission</StatValue>
                 <StatLabel>
-                  Sécuriser, développer et valoriser des portefeuilles
-                  immobiliers durables dans un marché en forte croissance
-                  urbaine.
+                  Concevoir, produire et opérer des projets d’animation et
+                  d’aménagement <strong>sécurisés</strong>,{" "}
+                  <strong>inclusifs</strong> et <strong>responsables</strong>,
+                  avec un haut niveau d’exigence créative et opérationnelle.
                 </StatLabel>
               </StatCard>
             </StatsGrid>
@@ -408,23 +414,14 @@ const APropos = () => {
         <TeamGrid>
           {[
             {
-              name: "Thierno Bachir",
-              role: "Directeur Général et Gerant de Cauris Investment",
-              photo: imagess.bàchir || "/img/soum4-6.avif",
+              name: "Le Team",
+              role: "L'equipe de direction de MK Global Services GN",
+              photo: imagess.teàmmkgs || "/img/soum4-6.avif",
             },
-            {
-              name: "Me Amadou Oury   ",
-              role: "Consultant chez Cauris Investment",
-              photo: imagess.amadou || "",
-            },
-            {
-              name: "Alpha ousmane   ",
-              role: "Directeur Thechnique & Support Qualité",
-              photo: imagess.àlphà,
-            },
+
             {
               name: " Moussadjan Kaba",
-              role: "Direction Financière & Developpement  ",
+              role: "Le gerant de MK Global Services GN",
               photo: imagess.moussakaba,
             },
           ].map((member, index) => (

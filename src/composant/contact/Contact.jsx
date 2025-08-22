@@ -9,7 +9,7 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import SEO from "../../SEO";
 import { imagess } from "../../assets/imagess";
-import Barnaventete from "../Acueil/Barnaventete";
+import Barnaventete from "../Acueil/Barnav2";
 
 // EmailJS ENV send
 const EMAILJS_CONFIG = {
@@ -18,11 +18,10 @@ const EMAILJS_CONFIG = {
   userId: import.meta.env.VITE_EMAILJS_USER_IDC,
 };
 
-
 // ------ Email, téléphone, WhatsApp -----------
-const EMAIL = "contact@caurisinvestment.com";
-const PHONE = "+224612858507";
-const WHATSAPP = "+224612858507";
+const EMAIL = "contact@mkgservices-gn.com";
+const PHONE = "+224622856693";
+const WHATSAPP = "+224622856693";
 
 // Animation d'entrée
 const fadeIn = keyframes`
@@ -40,8 +39,8 @@ const ContactWrapper = styled(motion.section)`
   justify-content: center;
   background: linear-gradient(
     120deg,
-    ${colors.overlay} 65%,
-    ${colors.accentGold} 60%
+    ${colors.primar} 65%,
+    ${colors.secondar} 60%
   );
   overflow: hidden;
   padding: 4rem 0;
@@ -69,8 +68,8 @@ const ContactContainer = styled(motion.div)`
 const ContactInfoPanel = styled(motion.div)`
   background: linear-gradient(
     120deg,
-    ${colors.overlay} 90%,
-    ${colors.accentGold} 60%
+    ${colors.primar} 90%,
+    ${colors.secondar} 60%
   );
   backdrop-filter: blur(12px);
   border-radius: 0 0 0 50px;
@@ -105,7 +104,7 @@ const ContactTitle = styled.h2`
     left: 0;
     width: 160px;
     height: 4px;
-    background: ${colors.accentGold};
+    background: ${colors.secondar};
     border-radius: 2px;
   }
 
@@ -135,12 +134,12 @@ const InfoItem = styled.li`
   color: white;
   font-size: 1rem;
   margin-bottom: 1rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.6;
 
   svg {
-    color: ${colors.accentGold};
-    font-size: 1.3rem;
+    color: ${colors.secondar};
+    font-size: 1.4rem;
     margin-top: 0.2rem;
     flex-shrink: 0;
   }
@@ -152,13 +151,13 @@ const InfoItem = styled.li`
     transition: all 0.2s;
 
     &:hover {
-      color: ${colors.accentGold};
+      color: ${colors.secondar};
     }
   }
 
   b {
-    font-weight: 600;
-    color: ${colors.accentGold};
+    font-weight: 700;
+    color: ${colors.secondar};
   }
 `;
 
@@ -195,7 +194,7 @@ const FormPanel = styled(motion.form)`
   background: linear-gradient(
     120deg,
     ${colors.white} 90%,
-    ${colors.overlay} 60%
+    ${colors.primar} 60%
   );
   border-radius: 0 56px 0 0;
   padding: 2.5rem;
@@ -215,15 +214,6 @@ const FormPanel = styled(motion.form)`
 const InputGroup = styled.div`
   position: relative;
   margin-bottom: 0.5rem;
-`;
-
-const InputLabel = styled.label`
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: ${colors.navyBg};
-  opacity: 0.8;
 `;
 
 const Input = styled.input`
@@ -286,8 +276,8 @@ const Textarea = styled.textarea`
 const SubmitBtn = styled(motion.button)`
   background: linear-gradient(
     126deg,
-    ${colors.accentTurquoise} 90%,
-    ${colors.accentGold} 10%
+    ${colors.primar} 90%,
+    ${colors.secondar} 10%
   );
   color: white;
   border: none;
@@ -326,10 +316,10 @@ const SubmitBtn = styled(motion.button)`
     transform: translateY(-2px);
     background: linear-gradient(
       126deg,
-      ${colors.accentGold} 90%,
-      ${colors.accentTurquoise} 10%
+      ${colors.primar} 90%,
+      ${colors.primar} 10%
     );
-    color: ${colors.accentTurquoise};
+    color: ${colors.secondar};
     &::after {
       opacity: 0;
     }
@@ -387,11 +377,13 @@ const Contact = () => {
   const validateField = (name, value) => {
     switch (name) {
       case "name":
-        return value.trim().length >= 2;
+        // Accepte seulement lettres, espaces, traits d'union et apostrophes
+        return /^[a-zA-ZÀ-ÿ\s\-']+$/.test(value) && value.trim().length >= 2;
       case "email":
-        return /^[^\s@]+@[^\s@]+\.com$/.test(value);
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
       case "message":
-        return value.trim().length >= 10;
+        // Accepte lettres, chiffres, espaces et ponctuation basique
+        return /^[a-zA-ZÀ-ÿ0-9\s.,!?;:()\-'"']+$/.test(value) && value.trim().length >= 10;
       default:
         return true;
     }
@@ -401,9 +393,13 @@ const Contact = () => {
     const { name, value } = e.target;
     let sanitizedValue = sanitizeInput(value);
 
-    // Transformation en majuscules pour le nom
+    // Nettoyage spécifique selon le champ
     if (name === "name") {
-      sanitizedValue = sanitizedValue.toUpperCase();
+      // Autorise seulement lettres, espaces, traits d'union et apostrophes
+      sanitizedValue = sanitizedValue.replace(/[^a-zA-ZÀ-ÿ\s\-']/g, '').toUpperCase();
+    } else if (name === "message") {
+      // Autorise lettres, chiffres, espaces et ponctuation basique
+      sanitizedValue = sanitizedValue.replace(/[^a-zA-ZÀ-ÿ0-9\s.,!?;:()\-'"']/g, '');
     }
 
     setForm((prev) => ({ ...prev, [name]: sanitizedValue }));
@@ -442,7 +438,6 @@ const Contact = () => {
           name: form.name,
           email: form.email,
           message: form.message,
-          //     date: new Date().toLocaleString("fr-FR"),
         },
         EMAILJS_CONFIG.userId
       );
@@ -451,11 +446,10 @@ const Contact = () => {
       setForm({ name: "", email: "", message: "" });
       setTouched({ name: false, email: false, message: false });
     } catch (error) {
-       toast.error("Erreur lors de l'envoi du message. Essayez à nouveau.");
+      toast.error("Erreur lors de l'envoi du message. Essayez à nouveau.");
     } finally {
       setIsSending(false);
     }
- 
   };
 
   return (
@@ -481,7 +475,7 @@ const Contact = () => {
             "numéro téléphone",
             "adresse Cauris",
           ]}
-          url="https://www.caurisinvestment.com/contact"
+          url="https://www.mkgservices-gn.com/contact"
           image={imagess.àlphà}
           type="website"
         />
@@ -554,8 +548,6 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <InputGroup>
-              {/*        <InputLabel>Nom complet *</InputLabel>
-               */}{" "}
               <Input
                 type="text"
                 name="name"
@@ -568,17 +560,16 @@ const Contact = () => {
               />
               {touched.name && !validateField("name", form.name) && (
                 <ErrorMessage>
-                  Le nom doit contenir au moins 2 lettres
+                  Le nom doit contenir au moins 2 lettres (aucun caractère spécial autorisé)
                 </ErrorMessage>
               )}
             </InputGroup>
 
             <InputGroup>
-              {/*<InputLabel>Adresse email *</InputLabel>*/}
               <Input
                 type="email"
                 name="email"
-                placeholder="votre emàil : exemple@domaine.com"
+                placeholder="votre email : exemple@email.com"
                 value={form.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -587,14 +578,12 @@ const Contact = () => {
               />
               {touched.email && !validateField("email", form.email) && (
                 <ErrorMessage>
-                  Veuillez entrer une adresse email valide se terminant par .com
+                  Veuillez entrer une adresse email valide
                 </ErrorMessage>
               )}
             </InputGroup>
 
             <InputGroup>
-              {/*           <InputLabel>Votre message *</InputLabel>
-               */}{" "}
               <Textarea
                 name="message"
                 placeholder="Décrivez votre demande en détails..."
@@ -611,7 +600,7 @@ const Contact = () => {
               </CharCount>
               {touched.message && !validateField("message", form.message) && (
                 <ErrorMessage>
-                  Le message doit contenir au moins 10 caractères
+                  Le message doit contenir au moins 10 caractères (caractères spéciaux limités)
                 </ErrorMessage>
               )}
             </InputGroup>

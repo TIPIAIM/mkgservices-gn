@@ -577,152 +577,139 @@ const fallback =
   "/placeholder.jpg";
 
 const VENUES = [
-   
-  
   {
-    label: "Décoration ",
+    label: "Décoration lumineuse",
     img: imagess?.coration_lumineuse_imge1 || fallback,
-    type: "Décoration lumineuse ",
+    type: "décoration",
     description:
-""  },
+      "Installations lumineuses créatives pour transformer vos espaces en environnement magique et festif. Éclairages LED, guirlandes et structures lumineuses pour événements nocturnes."
+  },
   {
-    label: "Décoration ",
+    label: "Décoration événementielle",
     img: imagess?.coration_lumineuse_imge2 || fallback,
-    type: "Décoration lumineuse ",
+    type: "décoration",
     description:
-""  },
+      "Design d'espaces sur mesure pour mariages, anniversaires et événements corporatifs. Ambiances thématiques, centres de table élégants et installations artistiques."
+  },
   {
-    label: "Décoration",
+    label: "Décoration thématique",
     img: imagess?.coration_lumineuse_imge3 || fallback,
-    type: "Décoration lumineuse ",
+    type: "décoration",
     description:
-""  },
-{
-  label: "Décoration",
-  img: imagess?.coration_lumineuse_imge5 || fallback,
-  type: "Décoration lumineuse ",
-  description:
-""  },
-
-
-
-
+      "Création d'univers complets selon vos thèmes préférés. De la décoration africaine traditionnelle aux ambiances modernes et contemporaines."
+  },
   {
-    label: "Amenagement ",
+    label: "Éclairage d'ambiance",
+    img: imagess?.coration_lumineuse_imge5 || fallback,
+    type: "décoration",
+    description:
+      "Solutions d'éclairage professionnel pour mettre en valeur vos espaces et créer des atmosphères uniques. Projecteurs, spots directionnels et effets lumineux."
+  },
+  {
+    label: "Aménagement extérieur",
     img: imagess?.amenagement_exterieux || fallback,
-    type: "amenagement exterieux",
+    type: "amenagement",
     description:
- ""
+      "Conception et réalisation d'espaces extérieurs fonctionnels et esthétiques. Terrasses, zones de détente et aménagements paysagers pour événements en plein air."
   },
   {
-    label: "Amenagement ",
+    label: "Structures événementielles",
     img: imagess?.amenagement_exterieux0 || fallback,
-    type: "amenagement exterieux",
+    type: "amenagement",
     description:
- ""
+      "Installation de tentes, chapiteaux et structures temporaires pour vos événements. Solutions adaptées à toutes les conditions météorologiques."
   },
   {
-    label: "Amenagement ",
-    img: imagess?.amenagement_exterieux1|| fallback,
-    type: "amenagement exterieux",
+    label: "Mobilier extérieur",
+    img: imagess?.amenagement_exterieux1 || fallback,
+    type: "amenagement",
     description:
- ""
+      "Location de mobilier design pour espaces extérieurs. Assises confortables, tables de banquet et éléments de décoration pour réceptions en plein air."
   },
   {
-    label: "Amenagement ",
+    label: "Zones thématiques",
     img: imagess?.amenagement_exterieux2 || fallback,
-    type: "amenagement exterieux",
+    type: "amenagement",
     description:
- ""
+      "Création d'espaces dédiés within your event: zones lounge, coins photo, espaces jeux et espaces détente aménagés avec soin."
   },
   {
-    label: "Amenagement ",
+    label: "Scénographie complète",
     img: imagess?.amenagement_exterieux3 || fallback,
-    type: "amenagement exterieux",
+    type: "amenagement",
     description:
- ""
+      "Conception globale de l'espace événementiel incluant circulation, ambiance et expérience utilisateur. De l'accueil aux espaces principaux."
   },
-
-
-
-
   {
-    label: "Colonies de vacances",
+    label: "Colonie de vacances - Activités",
     img: imagess?.colon7_hobmqm || fallback,
     type: "colonies de vacances",
     description:
-      "Espaces professionnels équipés pour séminaires, formations et présentations corporate.",
+      "Organisation complète de colonies de vacances avec activités éducatives et récréatives. Encadrement professionnel et programme adapté à chaque tranche d'âge."
   },
   {
-    label: "Colonies de vacances",
+    label: "Colonie de vacances - Hébergement",
     img: imagess?.colon8 || fallback,
     type: "colonies de vacances",
     description:
- ''
+      "Séjours en immersion nature avec hébergement de qualité et restauration équilibrée. Cadre sécurisé et propice à l'épanouissement des enfants et adolescents."
   },
   {
-    label: "Colonies de vacances",
+    label: "Colonie de vacances - Apprentissage",
     img: imagess?.coloni3 || fallback,
     type: "colonies de vacances",
     description:
- ''
+      "Programmes éducatifs par le jeu et l'expérience. Développement des compétences sociales, creativity et autonomie dans un environnement supervisé."
   },
-  
-
-
-
-
-
-
   {
-    label: "Family days",
+    label: "Family Day - Activités en groupe",
     img: imagess?.Pour_les_Family_day1 || fallback,
     type: "Family day",
     description:
-      "Lieux atypiques pour des événements mémorables (anciennes usines, sites historiques, etc.).",
+      "Journées dédiées aux employés et leurs familles avec activités team-building adaptées à tous les âges. Renforcement de la cohésion et culture d'entreprise."
   },
- {
-    label: "Family days",
+  {
+    label: "Family Day - Animations",
     img: imagess?.Pour_les_Family_day4 || fallback,
     type: "Family day",
     description:
-      " ",
+      "Ateliers créatifs, jeux collaboratifs et animations divertissantes pour renforcer les liens familiaux dans un cadre professionnel détendu.",
   },
   {
-    label: "Family days",
+    label: "Family Day - Espace détente",
     img: imagess?.Pour_les_Family_day5 || fallback,
     type: "Family day",
     description:
-      " ",
+      "Zones aménagées spécialement pour le confort et la détente des familles. Espaces lounge, jeux calmes et coins repas conviviaux.",
   },
   {
-    label: "Family days",
+    label: "Family Day - Activités sportives",
     img: imagess?.Pour_les_Family_day6 || fallback,
     type: "Family day",
     description:
-      " ",
+      "Tournois et défis sportifs adaptés aux participants de tous niveaux. Équipements sécurisés et encadrement par des professionnels.",
   },
   {
-    label: "Family days",
+    label: "Family Day - Cérémonie",
     img: imagess?.Pour_les_Family_day8 || fallback,
     type: "Family day",
     description:
-      " ",
+      "Moments de partage et de reconnaissance pour célébrer les succès d'équipe. Remises de prix et cérémonies dans une ambiance festive.",
   },
   {
-    label: "Family days",
+    label: "Family Day - Buffet",
     img: imagess?.Pour_les_Family_day || fallback,
     type: "Family day",
     description:
-      " ",
+      "Service de restauration adapté aux goûts de tous avec options variées et équilibrées. Espaces repas agréables et service professionnel.",
   },
 ];
 
 const FILTERS = [
   "Tous",
-  "Décoration  ",
-  "amenagement ",
-  "Colonies de vacances",
+  "décoration",
+  "amenagement",
+  "colonies de vacances",
   "Family day",
 ];
 
@@ -788,17 +775,12 @@ const Lesservices = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <BigIndex>??</BigIndex>
+          <BigIndex>§</BigIndex>
           <TitleWrap>
-            <Overline>sélection de lieux MKGS</Overline>
-            <Title>Le lieu idéal pour chaque expérience</Title>
+            <Overline>Nos services événementiels</Overline>
+            <Title>Des prestations sur mesure pour chaque événement</Title>
             <Lead>
-              Bien plus qu'une recherche d'espace, nous{" "}
-              <strong>conseillons</strong> et <strong>sécurisons</strong> le
-              choix du lieu : accessibilité, capacité, contraintes techniques
-              et, lorsque possible, options <strong>écoresponsables</strong>. De
-              Conakry au littoral, notre réseau ouvre des possibilités
-              sur‑mesure.
+              De la décoration à l'aménagement complet d'espaces, en passant par l'organisation de colonies de vacances et de Family Days, nous proposons une gamme complète de services pour faire de votre événement un succès. Notre équipe expérimentée assure un accompagnement personnalisé et une exécution impeccable.
             </Lead>
 
             <Filters>

@@ -38,8 +38,8 @@ const itemVariants = {
 
 const FullWidthFooter = styled.footer`
   width: 100vw;
-  background: ${colors.accentTurquoise};
-   position: relative;
+  background: ${colors.primary};
+  position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -47,7 +47,7 @@ const FullWidthFooter = styled.footer`
 `;
 
 const FooterContainer = styled.footer`
-  background: ${colors.overlayAlpha};
+  background: ${colors.primary};
   width: 100%;
 `;
 
@@ -67,7 +67,7 @@ const GridContainer = styled.div`
 `;
 
 const SectionTitle = styled(motion.h3)`
-  color: ${colors.accentGold};
+  color: ${colors.secondar};
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 1.2rem;
@@ -80,7 +80,7 @@ const SectionTitle = styled(motion.h3)`
     left: 0;
     width: 40px;
     height: 3px;
-    background: ${colors.accentGold};
+    background: ${colors.white};
     border-radius: 2px;
   }
 `;
@@ -96,8 +96,9 @@ const ContactItem = styled(motion.div)`
   gap: 0.85rem;
   color: ${colors.white};
   font-size: 1rem;
+  font-weight: 500;
   svg {
-    color: ${colors.accentGold};
+    color: ${colors.secondar};
     flex-shrink: 0;
   }
   a {
@@ -105,7 +106,7 @@ const ContactItem = styled(motion.div)`
     text-decoration: none;
     transition: color 0.3s ease;
     &:hover {
-      color: ${colors.accentGold};
+      color: ${colors.secondar};
     }
   }
 `;
@@ -122,8 +123,9 @@ const ServiceItem = styled(motion.div)`
   gap: 1rem;
   color: ${colors.white};
   font-size: 0.97rem;
+  font-weight: 500;
   svg {
-    color: ${colors.accentGold};
+    color: ${colors.secondar};
     flex-shrink: 0;
   }
 `;
@@ -147,12 +149,12 @@ const SocialLink = styled(motion.a)`
   width: 40px;
   height: 40px;
   background: ${colors.accentTurquoise};
-  border: 1.5px solid ${colors.accentGold};
+  border: 1.5px solid ${colors.secondar};
   border-radius: 100px;
-  color: ${colors.white};
+  color: ${colors.secondar};
   transition: all 0.3s ease;
   &:hover {
-    background: ${colors.accentGold};
+    background: ${colors.secondar};
     color: ${colors.white};
     border-color: ${colors.accentTurquoise};
   }
@@ -171,7 +173,7 @@ const NewsletterForm = styled.form`
 `;
 
 const NewsletterButton = styled(motion.button)`
-  background: ${colors.accentGold};
+  background: ${colors.secondar};
   color: ${colors.accentTurquoise};
   border: none;
   padding: 0.8rem 1.3rem;
@@ -184,8 +186,7 @@ const NewsletterButton = styled(motion.button)`
   gap: 0.7rem;
   &:hover {
     background: ${colors.accentTurquoise};
-      color: ${colors.white};
-
+    color: ${colors.white};
   }
 `;
 
@@ -194,7 +195,7 @@ const LegalSection = styled(motion.div)`
   flex-direction: column;
   gap: 1rem;
   grid-column: 1 / -1;
-  border-top: 1px solid ${colors.accentGold}33;
+  border-top: 1px solid ${colors.secondar}33;
   padding-top: 2rem;
   margin-top: 1.3rem;
 `;
@@ -207,9 +208,10 @@ const LegalLinks = styled.div`
 `;
 //securis
 const LegalLink = styled(motion.a)`
-  color: ${colors.accentGold};
+  color: ${colors.secondar};
   text-decoration: none;
   font-size: 0.9rem;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -231,7 +233,7 @@ const CopyrightSection = styled(motion.div)`
 const BackToTop = styled(motion.button)`
   background: none;
   border: none;
-  color: ${colors.accentGold };
+  color: ${colors.secondar};
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -318,16 +320,16 @@ const Footer = () => {
         <ModalText>
           <h4>Éditeur du site</h4>
           <p>
-            CAURIS INVESTMENT SARL
+           MKGS SARLU 
             <br />
-            Capital social : 250 000 000 GNF
+            Capital social : 5 000 000 GNF
             <br />
-            RCCM : GN-KAL-01-2022-B14-00001
+            RCCM : G.TTC.2023.B.0546
             <br />
-            Siège social : Minière, Commune de Dixinn, Conakry, Guinée
+            Siège social : Kipé, Commune de Ratoma, Conakry, Guinée
           </p>
           <h4>Directeur de publication</h4>
-          <p>M. Saeed Khan Zaman, Gérant</p>
+          <p>Moussadjan kaba, Gérant</p>
           <h4>Hébergement</h4>
           <p>
             AWS - Amazon Web Services
@@ -374,9 +376,9 @@ const Footer = () => {
           <h4>Paiements & investissements</h4>
           <ul>
             <li>
-              <strong>Qui peut investir avec Cauris Investment ?</strong>
+              <strong>Qui peut investir avec nous ?</strong>
               <br />
-              Tout investisseur institutionnel ou privé, après validation KYC.
+              Tout le monde.
             </li>
             <li>
               <strong>
@@ -390,7 +392,7 @@ const Footer = () => {
           <h4>Contact & services</h4>
           <ul>
             <li>
-              <strong>Comment joindre Cauris ?</strong>
+              <strong>Comment joindre Mkgservices-gn ?</strong>
               <br />
               Via le formulaire de contact, WhatsApp, téléphone ou email.
             </li>
@@ -409,13 +411,13 @@ const Footer = () => {
           </p>
           <h4>Article 2 - Confidentialité</h4>
           <p>
-            Cauris Investment s’engage à protéger vos données conformément au
+          Mkgservices s’engage à protéger vos données conformément au
             RGPD.
           </p>
           <h4>Article 3 - Propriété intellectuelle</h4>
           <p>
             Tous les contenus (textes, images, logos) sont la propriété
-            exclusive de Cauris Investment.
+            exclusive de Mkgservices-gn.
           </p>
         </ModalText>
       ),
@@ -437,16 +439,16 @@ const Footer = () => {
               <SectionTitle>Contact</SectionTitle>
               <ContactItem>
                 <MapPin size={18} />
-                <span>Minière, Dixinn, Conakry, Guinée</span>
+                <span>Kipé,C/Ratoma, Conakry, Guinée</span>
               </ContactItem>
               <ContactItem>
                 <Phone size={18} />
-                <a href="tel:+224612858507">+224 612 85 85 07</a>
+                <a href="tel:+224 622856693">+224 622 85 66 93</a>
               </ContactItem>
               <ContactItem>
                 <Mail size={18} />
-                <a href="mailto:contact@caurisinvestment.com">
-                  contact@caurisinvestment.com
+                <a href="mailto:contact@mkgservices-gn.com">
+                  contact@mkgservices-gn.com
                 </a>
               </ContactItem>
             </ContactSection>
@@ -455,15 +457,15 @@ const Footer = () => {
               <SectionTitle>Nos activités</SectionTitle>
               <ServiceItem>
                 <Hand size={18} />
-                <span>Structuration d’investissements</span>
+                <span>Street Marketing & Activation Commerciale </span>
               </ServiceItem>
               <ServiceItem>
                 <FileText size={18} />
-                <span>Partenariats & Conseil</span>
+                <span>Sourcing & Objets Personnalisés</span>
               </ServiceItem>
               <ServiceItem>
                 <Lock size={18} />
-                <span>Gouvernance & Conformité</span>
+                <span>Courtage & Négoce International</span>
               </ServiceItem>
             </ServicesSection>
             {/* --- Réseaux sociaux --- */}
@@ -471,7 +473,7 @@ const Footer = () => {
               <SectionTitle>Réseaux sociaux</SectionTitle>
               <SocialLinks>
                 <SocialLink
-                  href="https://www.linkedin.com/company/caurisinvestment"
+                  href="https://www.linkedin.com/company/mkgservices"
                   target="_blank"
                   aria-label="LinkedIn"
                   rel="noopener noreferrer"
@@ -479,7 +481,7 @@ const Footer = () => {
                   <Linkedin size={22} />
                 </SocialLink>
                 <SocialLink
-                  href="https://www.facebook.com/caurisinvestment"
+                  href="https://www.facebook.com/mkgservices"
                   target="_blank"
                   aria-label="Facebook"
                   rel="noopener noreferrer"
@@ -492,14 +494,13 @@ const Footer = () => {
             <NewsletterSection variants={itemVariants}>
               <SectionTitle>À propos</SectionTitle>
               <p style={{ color: colors.white, fontSize: "1rem" }}>
-                Cauris Investment accompagne les investisseurs et institutions
-                en Guinée et Afrique de l’Ouest sur des projets innovants,
-                responsables et sécurisés.
+                Nous sommes un
+                partenaire stratégique pour les marques, les institutions et les
+                investisseurs qui veulent créer un impact durable en Guinée et
+                en Afrique de l’Ouest.
               </p>
               <NewsletterForm>
-                <NewsletterButton>
-                  Merci pour votre confiance
-                </NewsletterButton>
+                <NewsletterButton>Merci pour votre confiance</NewsletterButton>
               </NewsletterForm>
             </NewsletterSection>
           </GridContainer>
@@ -535,7 +536,7 @@ const Footer = () => {
           {/* --- Copyright --- */}
           <CopyrightSection variants={itemVariants}>
             <p>
-              © {new Date().getFullYear()} Cauris Investment – Tous droits
+              © {new Date().getFullYear()} MK Globale Service – Tous droits
               réservés
             </p>
             <BackToTop onClick={scrollToTop}>

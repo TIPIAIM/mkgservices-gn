@@ -1,10 +1,20 @@
 import React, { useState, lazy, Suspense, memo } from "react";
 import styled, { keyframes } from "styled-components";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Home, Users, Briefcase, Layers, Phone, Award } from "lucide-react";
+import {
+  Menu,
+  X,
+  Home,
+  Users,
+  Briefcase,
+  Layers,
+  Phone,
+  Award,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import colors from "../../Styles/colors";
-  
+import Homemk from "./Homemk";
+
 // -- Palette, navIcons et lazy-load comme dans ta base --
 const navIcons = {
   "/": Home,
@@ -22,11 +32,16 @@ const glowLogo = keyframes`
 
 const NavbarContainer = styled.nav`
   width: 100%;
-  background: linear-gradient(90deg, ${colors.primar} 60%, ${colors.primary} 100%);
+  background: linear-gradient(
+    90deg,
+    ${colors.primar} 60%,
+    ${colors.primary} 100%
+  );
   color: ${colors.white};
   box-shadow: 0 2px 24px ${colors.primary}19;
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   z-index: 120;
   transition: box-shadow 0.3s;
 `;
@@ -65,7 +80,9 @@ const NavLinks = styled.ul`
   display: flex;
   gap: 2.3rem;
   align-items: center;
-  @media (max-width: 900px) { display: none; }
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 
 const NavLinkItem = styled.li``;
@@ -84,18 +101,25 @@ const StyledLink = styled(Link)`
   letter-spacing: 0.05em;
   transition: color 0.15s, border 0.18s, background 0.23s;
   border-radius: 2px;
-  background: ${({ $active }) => $active ? colors.accentGold+"18" : "none"};
+  background: ${({ $active }) => ($active ? colors.accentGold + "18" : "none")};
   &:hover {
     color: ${colors.white};
     border-bottom: 2px solid ${colors.secondary};
-    background: ${colors.accentGold+"13"};
+    background: ${colors.accentGold + "13"};
   }
   &::after {
     content: "";
-    display: ${({ $active }) => $active ? "block" : "none"};
+    display: ${({ $active }) => ($active ? "block" : "none")};
     position: absolute;
-    left: 0; bottom: -3px; width: 100%; height: 2.5px;
-    background: linear-gradient(90deg, ${colors.accentGold} 0%, ${colors.secondary} 100%);
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2.5px;
+    background: linear-gradient(
+      90deg,
+      ${colors.accentGold} 0%,
+      ${colors.secondary} 100%
+    );
     border-radius: 3px;
     transition: all 0.17s;
   }
@@ -109,16 +133,30 @@ const MenuButton = styled.button`
   color: ${colors.white};
   cursor: pointer;
   font-size: 2rem;
-  @media (max-width: 900px) { display: block; }
+  @media (max-width: 900px) {
+    display: block;
+  }
 `;
 
 const Sidebar = styled.div`
-  position: fixed; top: 0; right: ${({ open }) => (open ? 0 : "-100%")};
-  width: 350px; height: 100vh;
-  background: linear-gradient(135deg, ${colors.primary} 30%, ${colors.accentTurquoise} 100%);
-  box-shadow: -2px 0 20px ${colors.primary}22;
-  display: flex; flex-direction: column; align-items: flex-start;
-  padding: 2.1rem 1.5rem; transition: right 0.32s cubic-bezier(0.4, 2, 0.55, 0.67); z-index: 200; gap: 2.2rem;
+  position: fixed;
+  top: 0;
+  right: ${({ open }) => (open ? 0 : "-100%")};
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    ${colors.primary} 30%,
+    ${colors.accentTurquoise} 100%
+  );
+  box-shadow: -2px 0 16px ${colors.primary}22;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2.1rem 1.5rem;
+  transition: right 0.32s cubic-bezier(0.4, 2, 0.55, 0.67);
+  z-index: 200;
+  gap: 2.2rem;
 `;
 
 const CloseButton = styled.button`
@@ -151,9 +189,15 @@ const SidebarLink = styled(Link)`
 
 const Overlay = styled.div`
   display: ${({ open }) => (open ? "block" : "none")};
-  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-  background: rgba(0, 0, 0, 0.78); z-index: 150;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.78);
+  z-index: 150;
 `;
+
 
 // --------- Navbar Component ---------
 const Navbard= memo(() => {
@@ -172,7 +216,10 @@ const Navbard= memo(() => {
   // Animation shake (pour icon sur hover)
   const shakeAnimation = {
     initial: { x: 0 },
-    animate: { x: [0, -5, 5, -2, 2, 0], transition: { duration: 0.32, ease: "easeInOut" } },
+    animate: {
+      x: [0, -5, 5, -2, 2, 0],
+      transition: { duration: 0.32, ease: "easeInOut" },
+    },
   };
 
   return (
@@ -181,7 +228,6 @@ const Navbard= memo(() => {
         <NavContent>
           <LogoBlock to="/">
             <img src="/logomkàvectextefondbleux.png" alt="MKGS Logo" />
-            
           </LogoBlock>
 
           <NavLinks>
@@ -215,7 +261,10 @@ const Navbard= memo(() => {
             </MiniSlogan>*/}
           </NavLinks>
 
-          <MenuButton aria-label="Ouvrir le menu" onClick={() => setSidebarOpen(true)}>
+          <MenuButton
+            aria-label="Ouvrir le menu"
+            onClick={() => setSidebarOpen(true)}
+          >
             <Menu size={28} />
           </MenuButton>
         </NavContent>
@@ -223,7 +272,10 @@ const Navbard= memo(() => {
 
       <Overlay open={sidebarOpen} onClick={() => setSidebarOpen(false)} />
       <Sidebar open={sidebarOpen}>
-        <CloseButton aria-label="Fermer le menu" onClick={() => setSidebarOpen(false)}>
+        <CloseButton
+          aria-label="Fermer le menu"
+          onClick={() => setSidebarOpen(false)}
+        >
           <X size={28} />
         </CloseButton>
         {links.map((link) => {
@@ -242,12 +294,14 @@ const Navbard= memo(() => {
             </SidebarLink>
           );
         })}
-        
       </Sidebar>
 
-     
+      <Suspense fallback={null}>
+   
+      </Suspense>
     </>
   );
 });
+
 
 export default Navbard;
