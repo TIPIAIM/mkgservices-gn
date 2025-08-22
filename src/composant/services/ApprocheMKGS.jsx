@@ -2,20 +2,20 @@ import React, { useState, useMemo, useRef } from "react";
 import styled from "styled-components";
 import { motion, useInView } from "framer-motion";
 import colors from "../../Styles/colors";
-import { 
+import {
   Briefcase,
   Users,
   Award,
   Handshake,
-  ChevronDown, 
-  ChevronUp
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 // Import des logos clients (à adapter selon votre structure de fichiers)
 import enabelLogo from "../../assets/logos/enabel.png";
 import gpcLogo from "../../assets/logos/gpc.png";
 import orangeLogo from "../../assets/logos/orange.png";
-import sobraguiLogo from "../../assets/logos/càuris.png";
+import sobraguiLogo from "../../assets/logos/càuris.PNG";
 import shelfistek from "../../assets/logos/shelfistek.png";
 
 import essor from "../../assets/logos/essor.png";
@@ -24,88 +24,94 @@ import officetourime from "../../assets/logos/officetourime.png";
 import àlione from "../../assets/logos/àlione.png";
 import pàlàbresconsulting from "../../assets/logos/pàlàbresconsulting.PNG";
 
-
 const ClientsTrust = () => {
   const [isExpanded, setIsExpanded] = useState(true);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: false, margin: "-15% 0px" });
 
-  const servicesItems = useMemo(() => [
-    {
-      icon: <Briefcase size={20} />,
-      title: "Pilotage rigoureux",
-      content: "Gestion méticuleuse à chaque étape de vos projets pour garantir leur succès."
-    },
-    {
-      icon: <Users size={20} />,
-      title: "Équipe pluridisciplinaire",
-      content: "Des experts passionnés dans divers domaines pour répondre à tous vos besoins."
-    },
-    {
-      icon: <Award size={20} />,
-      title: "Approche sur-mesure",
-      content: "Solutions innovantes alliant performance et efficacité pour des résultats exceptionnels."
-    }
-  ], []);
+  const servicesItems = useMemo(
+    () => [
+      {
+        icon: <Briefcase size={20} />,
+        title: "Pilotage rigoureux",
+        content:
+          "Gestion méticuleuse à chaque étape de vos projets pour garantir leur succès.",
+      },
+      {
+        icon: <Users size={20} />,
+        title: "Équipe pluridisciplinaire",
+        content:
+          "Des experts passionnés dans divers domaines pour répondre à tous vos besoins.",
+      },
+      {
+        icon: <Award size={20} />,
+        title: "Approche sur-mesure",
+        content:
+          "Solutions innovantes alliant performance et efficacité pour des résultats exceptionnels.",
+      },
+    ],
+    []
+  );
 
-  const clients = useMemo(() => [
-    { 
-      name: "Enabel", 
-      logo: enabelLogo,
-      alt: "Logo Enabel"
-    },
-    { 
-      name: "GPC", 
-      logo: gpcLogo,
-      alt: "Logo GPC"
-    },
-    { 
-      name: "Orange", 
-      logo: orangeLogo,
-      alt: "Logo Orange"
-    },
-    { 
-      name: "Cauris", 
-      logo: sobraguiLogo,
-      alt: "Logo càuris"
-    },
-    { 
-      name: "Shelfi stek", 
-      logo: shelfistek,
-      alt: "Logo Gavalan"
-    },
- 
+  const clients = useMemo(
+    () => [
+      {
+        name: "Enabel",
+        logo: enabelLogo,
+        alt: "Logo Enabel",
+      },
+      {
+        name: "GPC",
+        logo: gpcLogo,
+        alt: "Logo GPC",
+      },
+      {
+        name: "Orange",
+        logo: orangeLogo,
+        alt: "Logo Orange",
+      },
+      {
+        name: "Cauris",
+        logo: sobraguiLogo,
+        alt: "Logo càuris",
+      },
+      {
+        name: "Shelfi stek",
+        logo: shelfistek,
+        alt: "Logo Gavalan",
+      },
 
-    { 
-      name: "Essor", 
-      logo: essor,
-      alt: "Logo SOBRAGUI"
-    },
-    { 
-      name: "Essor", 
-      logo: màgicpàrk,
-      alt: "Logo SOBRAGUI"
-    },
-    { 
-      name: "Office tourime", 
-      logo: officetourime,
-      alt: "Logo SOBRAGUI"
-    },
-    { 
-      name: "Palabres consulting", 
-      logo: pàlàbresconsulting,
-      alt: "Logo SOBRAGUI"
-    },
-    { 
-      name: " All in one", 
-      logo: àlione,
-      alt: "Logo SOBRAGUI"
-    },
-
-  ], []);
+      {
+        name: "Essor",
+        logo: essor,
+        alt: "Logo SOBRAGUI",
+      },
+      {
+        name: "Essor",
+        logo: màgicpàrk,
+        alt: "Logo SOBRAGUI",
+      },
+      {
+        name: "Office tourime",
+        logo: officetourime,
+        alt: "Logo SOBRAGUI",
+      },
+      {
+        name: "Palabres consulting",
+        logo: pàlàbresconsulting,
+        alt: "Logo SOBRAGUI",
+      },
+      {
+        name: " All in one",
+        logo: àlione,
+        alt: "Logo SOBRAGUI",
+      },
+    ],
+    []
+  );
 
   return (
-    <TrustContainer 
+    <TrustContainer
       ref={containerRef}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -126,7 +132,7 @@ const ClientsTrust = () => {
               transition={{ duration: 0.85, delay: 0.1, type: "spring" }}
             />
           </Title>
-          <ToggleButton 
+          <ToggleButton
             aria-label={isExpanded ? "Réduire" : "Développer"}
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.9 }}
@@ -143,7 +149,8 @@ const ClientsTrust = () => {
             animate={isInView ? "visible" : "hidden"}
           >
             <IntroText>
-              Nous avons eu l'honneur de collaborer avec plusieurs institutions et entreprises pour :
+              Nous avons eu l'honneur de collaborer avec plusieurs institutions
+              et entreprises pour :
               <ul>
                 <li>Des projets d'aménagement</li>
                 <li>La mise en scène d'événements</li>
@@ -157,16 +164,20 @@ const ClientsTrust = () => {
                   key={`service-item-${index}`}
                   variants={cardVariants}
                   custom={index}
-                  whileHover={{ 
+                  whileHover={{
                     y: -8,
-                    boxShadow: "0 15px 30px rgba(0,0,0,0.15)"
+                    boxShadow: "0 15px 30px rgba(0,0,0,0.15)",
                   }}
                 >
                   <TireeAnim
                     as={motion.div}
                     initial={{ scaleY: 0 }}
                     animate={{ scaleY: 1 }}
-                    transition={{ duration: 0.55 + index * 0.1, delay: 0.25 + index * 0.1, ease: "easeOut" }}
+                    transition={{
+                      duration: 0.55 + index * 0.1,
+                      delay: 0.25 + index * 0.1,
+                      ease: "easeOut",
+                    }}
                   />
                   <ItemHeader>
                     <ItemIcon>{item.icon}</ItemIcon>
@@ -188,17 +199,17 @@ const ClientsTrust = () => {
                     key={`client-${index}`}
                     variants={indicatorVariants}
                     custom={index}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
-                      boxShadow: "0 8px 25px rgba(0,0,0,0.1)"
+                      boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
                     }}
                   >
-                    <ClientLogoImage 
-                      src={client.logo} 
+                    <ClientLogoImage
+                      src={client.logo}
                       alt={client.alt}
                       onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'block';
+                        e.target.style.display = "none";
+                        e.target.nextSibling.style.display = "block";
                       }}
                     />
                     <ClientName>{client.name}</ClientName>
@@ -209,14 +220,17 @@ const ClientsTrust = () => {
 
             <CTA>
               <CTAText>Faites confiance à notre savoir-faire</CTAText>
-             
             </CTA>
 
             <Socials>
               <SocialDot color={colors.primary}>
                 <motion.span
                   animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 >
                   <b>●</b>
                 </motion.span>
@@ -224,7 +238,12 @@ const ClientsTrust = () => {
               <SocialDot color={colors.black}>
                 <motion.span
                   animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.3, ease: "easeInOut" }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: 0.3,
+                    ease: "easeInOut",
+                  }}
                 >
                   <b>●</b>
                 </motion.span>
@@ -232,7 +251,12 @@ const ClientsTrust = () => {
               <SocialDot color={colors.accentGold}>
                 <motion.span
                   animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: 0.6, ease: "easeInOut" }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: 0.6,
+                    ease: "easeInOut",
+                  }}
                 >
                   <b>●</b>
                 </motion.span>
@@ -252,9 +276,9 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      when: "beforeChildren"
-    }
-  }
+      when: "beforeChildren",
+    },
+  },
 };
 
 const headerVariants = {
@@ -262,23 +286,23 @@ const headerVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 120, damping: 10, duration: 0.8 }
-  }
+    transition: { type: "spring", stiffness: 120, damping: 10, duration: 0.8 },
+  },
 };
 
 const contentVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1, when: "beforeChildren" }
-  }
+    transition: { staggerChildren: 0.1, when: "beforeChildren" },
+  },
 };
 
 const cardVariants = {
   hidden: (i) => ({
     opacity: 0,
     y: 50,
-    x: i % 2 === 0 ? -30 : 30
+    x: i % 2 === 0 ? -30 : 30,
   }),
   visible: (i) => ({
     opacity: 1,
@@ -289,24 +313,24 @@ const cardVariants = {
       type: "spring",
       stiffness: 100,
       damping: 10,
-      duration: 0.8
-    }
-  })
+      duration: 0.8,
+    },
+  }),
 };
 
 const indicatorsVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { delay: 0.4, duration: 0.6 }
-  }
+    transition: { delay: 0.4, duration: 0.6 },
+  },
 };
 
 const indicatorVariants = {
   hidden: (i) => ({
     opacity: 0,
     scale: 0.8,
-    y: 20
+    y: 20,
   }),
   visible: (i) => ({
     opacity: 1,
@@ -316,9 +340,9 @@ const indicatorVariants = {
       delay: 0.5 + i * 0.1,
       type: "spring",
       stiffness: 120,
-      damping: 10
-    }
-  })
+      damping: 10,
+    },
+  }),
 };
 
 // ================= STYLES =================
@@ -327,7 +351,7 @@ const TrustContainer = styled(motion.section)`
   --gold: ${colors.accentGold};
   --primary: ${colors.primar};
   --text-color: ${colors.white};
-  --gold-light:  ${colors.primary};
+  --gold-light: ${colors.primary};
 
   width: 100%;
   padding: 4rem 1.5rem;
@@ -336,7 +360,7 @@ const TrustContainer = styled(motion.section)`
   justify-content: center;
   position: relative;
   overflow: hidden;
-  
+
   @media (min-width: 768px) {
     padding: 5rem 2rem;
   }
@@ -371,7 +395,11 @@ const Title = styled.h2`
     left: 0;
     bottom: -2px;
     height: 5px;
-    background: linear-gradient(90deg, ${colors.accentGold} 20%, transparent 100%);
+    background: linear-gradient(
+      90deg,
+      ${colors.accentGold} 20%,
+      transparent 100%
+    );
     border-radius: 2px;
     z-index: 2;
   }
@@ -394,7 +422,7 @@ const ToggleButton = styled(motion.button)`
   cursor: pointer;
   transition: all 0.3s ease;
   will-change: transform;
-  
+
   &:hover {
     background: rgba(200, 170, 110, 0.2);
   }
@@ -404,7 +432,7 @@ const IntroText = styled.div`
   color: var(--text-color);
   font-size: 1.1rem;
   font-weight: 500;
-  
+
   line-height: 1.7;
   margin-bottom: 2.5rem;
   padding: 0 1rem;
@@ -463,7 +491,7 @@ const ServiceItem = styled(motion.div)`
   transition: all 0.3s ease;
   height: 100%;
   will-change: transform;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 
   &:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -489,7 +517,6 @@ const ItemIcon = styled.div`
 
   svg {
     color: ${colors.accentGold};
-;
     width: 1.5rem;
     height: 1.5rem;
   }
@@ -515,7 +542,7 @@ const ClientsSection = styled(motion.div)`
   padding: 2rem 0;
   text-align: center;
   will-change: transform;
-  
+
   @media (max-width: 480px) {
     padding: 1rem 0;
   }
@@ -556,7 +583,7 @@ const ClientLogo = styled(motion.div)`
   overflow: hidden;
   transition: all 0.3s ease;
   will-change: transform;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid ${colors.primary}20;
   display: flex;
   flex-direction: column;
@@ -566,14 +593,14 @@ const ClientLogo = styled(motion.div)`
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     background: ${colors.lightGrey};
-    
+
     img {
       transform: scale(1.1);
     }
   }
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -625,7 +652,7 @@ const CTAButton = styled(motion.button)`
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 `;
 
