@@ -151,7 +151,7 @@ const Highlight = styled.span`
     left: 0;
     width: 0;
     height: 3px;
-    background: ${colors.primar};
+    // background: ${colors.primar};
     transition: width 0.4s ease;
   }
   &:hover::before {
@@ -193,6 +193,7 @@ const TeamGrid = styled.div`
   gap: 1.5rem;
   padding: 0 1rem;
   max-width: 1080px;
+
   margin: 0 auto; /* ✅ centre le grid */
   justify-content: center; /* ✅ aligne le contenu */
 
@@ -282,18 +283,19 @@ const MemberPhoto = styled.img`
 `;
 const MemberInfo = styled.div`
   padding: 1.8rem;
-  text-align: center;
-  background: ${colors.overlayAlpha};
+  text-align: left;
+  // background: ${colors.overlayAlpha};
   border-radius: 0 2rem;
 `;
 const MemberName = styled.h3`
-  color: ${colors.accentGold};
+  color: ${colors.secondary};
   margin-bottom: 0.5rem;
-  font-weight: 700;
+  font-weight: 800;
+  text-align: center;
   font-size: 1.5rem;
 `;
 const MemberRole = styled.p`
-  color: ${colors.white};
+  color: ${colors.primary};
   font-weight: 600;
   font-size: 1rem;
 `;
@@ -414,15 +416,15 @@ const APropos = () => {
         <TeamGrid>
           {[
             {
-              name: "Le Team",
-              role: "L'equipe de direction de MK Global Services GN",
+              name: "Une Équipe Passionnée ",
+              role: "Nous réunissons des talents passionnés et créatifsns les domaines du divertissement, de l’animation, de la décoration et de l’aménagement. Cette synergie unique nous permet de concevoir des projets résolument originaux et sur-mesure, où chaque détail contribue à une expérience inoubliable. (en bas de une equipe passionée)",
               photo: imagess.teàmmkgs || "/img/soum4-6.avif",
             },
 
             {
               name: " Moussadjan Kaba",
-              role: "Le gerant de MK Global Services GN",
-              photo: imagess.moussakaba,
+              role: "Un chef de projet marketing spécialisé dans les projets d’innovation fort de plus de 12 ans d’expériences au sein d’une multina-tionale en Guinée, MK Global Services GN réunit des talents passionnés et créatifs es domaines du divertissement, de l’animation, de la décoration et de l’aménagement.                 ",
+              photo: imagess.moussakaba2,
             },
           ].map((member, index) => (
             <TeamMember
@@ -446,8 +448,6 @@ const APropos = () => {
           ))}
         </TeamGrid>
       </TeamSection>
-
-      
     </>
   );
 };

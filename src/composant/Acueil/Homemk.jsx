@@ -228,8 +228,8 @@ const MainHeading = styled(motion.h1)`
 const GradientText = styled.span`
   background: linear-gradient(
     90deg,
-    ${colors.secondar} 50%,
-    ${colors.secondary} 50%
+    ${colors.white} 50%,
+    ${colors.white} 50%
   );
   -webkit-background-clip: text;
   background-clip: text;

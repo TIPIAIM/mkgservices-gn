@@ -14,7 +14,9 @@ export const imagess = {
   //temoignàge imàgeàctivitéportràitmere
   moussakaba:
     "https://res.cloudinary.com/dueu8nf5j/image/upload/e_background_removal/b_rgb:FFFFFF/c_fill,ar_1:1,f_png/v1753214100/mouss_vnndnn.avif",
-  paul: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1751718582/MOE_0311_nxvggf.avif",
+  
+  moussakaba2:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1754415127/WhatsApp_Image_2025-08-04_at_15.34.49_ngai7j.jpg",
+    paul: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1751718582/MOE_0311_nxvggf.avif",
   naroumb:
     "https://res.cloudinary.com/dueu8nf5j/image/upload/v1751718587/naroumb_nzdfr4.avif",
   keitaseul2:
