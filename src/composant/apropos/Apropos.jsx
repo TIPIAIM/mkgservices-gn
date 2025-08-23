@@ -304,18 +304,21 @@ const MemberRole = styled.p`
 const APropos = () => {
   // SEO infos
   const seoImg = imagess.Pour_les_Family_day4;
-  const seoTitle = "Qui sommes-nous ? | Mk global Services GN";
+  const seoTitle = "Qui sommes-nous ? | MK Globale Services GN";
   const seoDescription =
-    "Cauris Investment est une holding spécialisée dans l’investissement immobilier en Guinée : acquisition, développement, gestion d’actifs, et structuration de partenariats. Découvrez notre équipe et nos valeurs.";
+    "MK Globale Services accompagne les acteurs publics et privés en Guinée dans l’aménagement d’espaces, l’animation événementielle, la décoration lumineuse et la création d’expériences de loisirs. Notre engagement : sécurité, innovation et impact durable.";
   const seoKeywords = [
-    "Cauris Investment",
-    "Khoris",
-
-    "gestion locative",
-    "investissement immobilier",
-    "foncier",
-    "équipe Cauris",
+    "MK Globale Services",
+    "aménagement Guinée",
+    "événementiel Conakry",
+    "street marketing",
+    "décoration lumineuse",
+    "espaces de loisirs",
+    "gestion événementielle",
+    "activation commerciale",
+    "courtage international",
   ];
+  
   const seoUrl = "https://www.mkgservices-gn.com/presentation";
 
   return (
