@@ -211,7 +211,7 @@ const MonQRCode = () => {
               { outer: [0, 24, 24, 24], inner: [0, 16, 16, 16] },
             ]}
           />
-          <Logo src="/img/logomkfontblàncpng" alt="Logo Premium" />
+          <Logo src="/img/logomkfontblànc.png" alt="Logo Premium" />
         </QRContainer>
       </div>
       <ScanText>Scannez MKGS pour une expérience exclusive</ScanText>
