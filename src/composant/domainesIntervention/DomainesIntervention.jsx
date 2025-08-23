@@ -16,6 +16,7 @@ import { useIntersectionObserver } from "./useIntersectionObserver";
 import PremiumServices from "./Domàine2";
 import SEO from "../../SEO";
 import Navbard from "../Acueil/Barnav2";
+import MonQRCode from "../../MonQRCode";
 
 /* ================= Helpers SEO (mêmes principes que tes autres pages) ================= */
 const getBaseUrl = () => {
@@ -457,7 +458,7 @@ const ITEMS = [
     key: "espaces",
     title: "Espaces de loisir",
     icon: <FaGamepad />,
-    cover: imagess?.colon7_hobmqm|| imagess?.enfàntkijoue || fallback,
+    cover: imagess?.colon7_hobmqm || imagess?.enfàntkijoue || fallback,
     overlayTitle: "Création d'espaces originaux",
     bullets: [
       "Fêtes foraines",
@@ -491,23 +492,22 @@ const DomainesExpertiseGrid = memo(function DomainesExpertiseGrid() {
 
   return (
     <>
-   <SEO
-  title="Domaines d’expertise — MK Global Services GN"
-  description="MK Global Services GN accompagne les acteurs publics et privés en Guinée dans l’aménagement et l’éco-construction, l’événementiel et les activations, les décors lumineux ainsi que le courtage et négoce. Découvrez nos domaines d’expertise."
-  image={ogImage}
-  url={pageUrl}
-  keywords={[
-    "MK Global Services GN",
-    "aménagement Guinée",
-    "éco-construction",
-    "événementiel Conakry",
-    "activations de marque",
-    "décors lumineux Guinée",
-    "street marketing",
-    "courtage négoce",
-  ]}
->
-
+      <SEO
+        title="Domaines d’expertise — MK Global Services GN"
+        description="MK Global Services GN accompagne les acteurs publics et privés en Guinée dans l’aménagement et l’éco-construction, l’événementiel et les activations, les décors lumineux ainsi que le courtage et négoce. Découvrez nos domaines d’expertise."
+        image={ogImage}
+        url={pageUrl}
+        keywords={[
+          "MK Global Services GN",
+          "aménagement Guinée",
+          "éco-construction",
+          "événementiel Conakry",
+          "activations de marque",
+          "décors lumineux Guinée",
+          "street marketing",
+          "courtage négoce",
+        ]}
+      >
         <link rel="canonical" href={pageUrl} />
       </SEO>
       <div>
@@ -516,7 +516,6 @@ const DomainesExpertiseGrid = memo(function DomainesExpertiseGrid() {
       <Section ref={ref}>
         <FloatingDecoration />
         <FloatingDecoration />
-
         <Container>
           <Header>
             <Title animate={isVisible ? { y: 0, opacity: 1 } : {}}>
@@ -589,7 +588,6 @@ const DomainesExpertiseGrid = memo(function DomainesExpertiseGrid() {
             ))}
           </Grid>
         </Container>
-
         <AnimatePresence>
           {open && (
             <LightboxOverlay onClick={() => setOpen(false)}>
@@ -620,8 +618,7 @@ const DomainesExpertiseGrid = memo(function DomainesExpertiseGrid() {
             </LightboxOverlay>
           )}
         </AnimatePresence>
-
-        <PremiumServices />
+        <PremiumServices /> <MonQRCode />
       </Section>
     </>
   );

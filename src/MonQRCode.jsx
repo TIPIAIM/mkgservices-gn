@@ -216,6 +216,7 @@ const MonQRCode = () => {
       </div>
       <ScanText>Scannez MKGS pour une expérience exclusive</ScanText>
       <DownloadBtn onClick={handleDownload}>Télécharger le QR Code</DownloadBtn>
+    
     </div>
   );
 };

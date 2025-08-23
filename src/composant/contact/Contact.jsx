@@ -617,6 +617,7 @@ const Contact = () => {
           </FormPanel>
         </ContactContainer>
       </ContactWrapper>
+      
     </div>
   );
 };
