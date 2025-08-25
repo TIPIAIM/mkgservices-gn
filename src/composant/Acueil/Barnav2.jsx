@@ -207,7 +207,7 @@ const Navbard= memo(() => {
 
   const links = [
     { to: "/", label: "Accueil" },
-    { to: "/projets", label: "Références" },
+    { to: "/projets", label: "Activités et Références" },
     { to: "/contact", label: "Contact" },
     { to: "/domaines", label: "Domaines d’intervention" },
     { to: "/presentation", label: "Apropos" },

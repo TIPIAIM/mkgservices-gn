@@ -157,16 +157,20 @@ const PremiumServices = () => {
           <h2>Courtage & Négoce International</h2>
 
           <ServiceHighlight $color={colors.accentTurquoise}>
-            <p>Votre passerelle pour investir en Guinée en toute sérénité</p>
+            <p>Partenaire d’accompagnement et de mise en œuvre en Guinée.</p>
           </ServiceHighlight>
 
           <BenefitsList>
             {[
-              "Accompagnement juridique et administratif",
-              "Réseau de partenaires locaux fiables",
-              "Négociation sur mesure avec les autorités",
-              "Études de marché sectorielles",
-              "Solutions de financement adaptées",
+              "Aménagement d’espaces de loisirs et aires de jeux",
+              "Décorations lumineuses extérieures et intérieures",
+              "Family Days",
+              "Colonies de vacances",
+              "Team building",
+              "Street Marketing et animations commerciales",
+              "Approvisionnement et Logistique",
+              "Location jeux et Attractions",
+              "Location Tentes, Chapiteau, Gazon et Estrades pour evènements",
             ].map((item, index) => (
               <motion.li
                 key={index}

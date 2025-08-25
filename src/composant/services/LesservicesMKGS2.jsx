@@ -379,7 +379,7 @@ const ControlButton = styled.button`
 const ModalImg = styled(motion.img)`
   width: 100%;
   height: min(76vh, 720px);
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   cursor: ${({ $zoom }) => ($zoom > 1 ? "grab" : "zoom-in")};
 `;
@@ -572,94 +572,176 @@ const ContactButton = styled.a`
 `;
 
 /* =================== Data =================== */
-const fallback =
-  (imagess && (imagess.plàinàirr || imagess.pàrkenfàntjoue)) ||
-  "/placeholder.jpg";
+const fallback = "/placeholder.jpg";
 
 const VENUES = [
   {
-    label: "Décoration lumineuse",
-    img: imagess?.coration_lumineuse_imge1 || fallback,
+    label: "Décoration lumineuse événementielle",
+    img: imagess?.coration_lumineuse_imge6 || fallback,
     type: "décoration",
     description:
       "Installations lumineuses créatives pour transformer vos espaces en environnement magique et festif. Éclairages LED, guirlandes et structures lumineuses pour événements nocturnes."
   },
   {
-    label: "Décoration événementielle",
-    img: imagess?.coration_lumineuse_imge2 || fallback,
+    label: "Décoration d'ambiance lumineuse",
+    img: imagess?.coration_lumineuse_imge1 || fallback,
+    type: "décoration",
+    description:
+      "Création d'ambiances chaleureuses et accueillantes grâce à des éclairages design et des installations lumineuses sur mesure pour tous types d'événements."
+  },
+  {
+    label: "Décoration événementielle complète",
+    img: imagess?.coration_lumineuse_imge4 || fallback,
     type: "décoration",
     description:
       "Design d'espaces sur mesure pour mariages, anniversaires et événements corporatifs. Ambiances thématiques, centres de table élégants et installations artistiques."
   },
   {
-    label: "Décoration thématique",
-    img: imagess?.coration_lumineuse_imge3 || fallback,
+    label: "Décoration thématique africaine",
+    img: imagess?.coration_lumineuse_imge5 || fallback,
     type: "décoration",
     description:
       "Création d'univers complets selon vos thèmes préférés. De la décoration africaine traditionnelle aux ambiances modernes et contemporaines."
   },
   {
-    label: "Éclairage d'ambiance",
-    img: imagess?.coration_lumineuse_imge5 || fallback,
+    label: "Éclairage d'ambiance professionnel",
+    img: imagess?.coration_lumineuse_imge3 || fallback,
     type: "décoration",
     description:
       "Solutions d'éclairage professionnel pour mettre en valeur vos espaces et créer des atmosphères uniques. Projecteurs, spots directionnels et effets lumineux."
   },
   {
-    label: "Aménagement extérieur",
-    img: imagess?.amenagement_exterieux || fallback,
+    label: "Décoration festive lumineuse",
+    img: imagess?.coration_lumineuse_imge2 || fallback,
+    type: "décoration",
+    description:
+      "Installations lumineuses festives pour célébrations et événements spéciaux. Éclairages colorés, effets dynamiques et atmosphères joyeuses."
+  },
+  {
+    label: "Aménagement extérieur événementiel",
+    img: imagess?.amenagement_exterieux7 || fallback,
     type: "amenagement",
     description:
       "Conception et réalisation d'espaces extérieurs fonctionnels et esthétiques. Terrasses, zones de détente et aménagements paysagers pour événements en plein air."
   },
   {
-    label: "Structures événementielles",
+    label: "Aménagement de réception extérieure",
+    img: imagess?.amenagement_exterieux8 || fallback,
+    type: "amenagement",
+    description:
+      "Organisation complète d'espaces de réception en extérieur avec mobilier design, éclairage d'ambiance et zones de circulation optimisées."
+  },
+  {
+    label: "Aménagement d'espaces lounge",
+    img: imagess?.amenagement_exterieux9 || fallback,
+    type: "amenagement",
+    description:
+      "Création de zones lounge confortables et élégantes pour moments de détente et d'échanges lors de vos événements professionnels ou privés."
+  },
+  {
+    label: "Aménagement de terrasses événementielles",
+    img: imagess?.amenagement_exterieux10 || fallback,
+    type: "amenagement",
+    description:
+      "Aménagement de terrasses et espaces ouverts avec mobilier adapté, décoration et éclairage pour réceptions et soirées en extérieur."
+  },
+  {
+    label: "Structures événementielles modulaires",
     img: imagess?.amenagement_exterieux0 || fallback,
     type: "amenagement",
     description:
       "Installation de tentes, chapiteaux et structures temporaires pour vos événements. Solutions adaptées à toutes les conditions météorologiques."
   },
   {
-    label: "Mobilier extérieur",
+    label: "Mobilier design pour extérieur",
     img: imagess?.amenagement_exterieux1 || fallback,
     type: "amenagement",
     description:
       "Location de mobilier design pour espaces extérieurs. Assises confortables, tables de banquet et éléments de décoration pour réceptions en plein air."
   },
   {
-    label: "Zones thématiques",
+    label: "Zones thématiques événementielles",
     img: imagess?.amenagement_exterieux2 || fallback,
     type: "amenagement",
     description:
       "Création d'espaces dédiés within your event: zones lounge, coins photo, espaces jeux et espaces détente aménagés avec soin."
   },
   {
-    label: "Scénographie complète",
+    label: "Scénographie complète d'événement",
     img: imagess?.amenagement_exterieux3 || fallback,
     type: "amenagement",
     description:
       "Conception globale de l'espace événementiel incluant circulation, ambiance et expérience utilisateur. De l'accueil aux espaces principaux."
   },
   {
-    label: "Colonie de vacances - Activités",
+    label: "Colonie de vacances - Activités éducatives",
     img: imagess?.colon7_hobmqm || fallback,
     type: "colonies de vacances",
     description:
       "Organisation complète de colonies de vacances avec activités éducatives et récréatives. Encadrement professionnel et programme adapté à chaque tranche d'âge."
   },
   {
-    label: "Colonie de vacances - Hébergement",
+    label: "Colonie de vacances - Hébergement qualité",
     img: imagess?.colon8 || fallback,
     type: "colonies de vacances",
     description:
       "Séjours en immersion nature avec hébergement de qualité et restauration équilibrée. Cadre sécurisé et propice à l'épanouissement des enfants et adolescents."
   },
   {
-    label: "Colonie de vacances - Apprentissage",
+    label: "Colonie de vacances - Apprentissage par le jeu",
     img: imagess?.coloni3 || fallback,
     type: "colonies de vacances",
     description:
       "Programmes éducatifs par le jeu et l'expérience. Développement des compétences sociales, creativity et autonomie dans un environnement supervisé."
+  },
+  {
+    label: "Colonie de vacances - Activités de groupe",
+    img: imagess?.colon6 || fallback,
+    type: "colonies de vacances",
+    description:
+      "Jeux coopératifs et activités de team building pour favoriser l'esprit d'équipe et la collaboration entre les jeunes participants."
+  },
+  {
+    label: "Colonie de vacances - Découverte nature",
+    img: imagess?.colon9 || fallback,
+    type: "colonies de vacances",
+    description:
+      "Activités de pleine nature et sensibilisation à l'environnement pour connecter les jeunes avec la nature et développer leur conscience écologique."
+  },
+  {
+    label: "Colonie de vacances - Expression artistique",
+    img: imagess?.colon10 || fallback,
+    type: "colonies de vacances",
+    description:
+      "Ateliers créatifs et artistiques pour stimuler l'imagination et permettre aux enfants de s'exprimer à travers différentes formes d'art."
+  },
+  {
+    label: "Colonie de vacances - Sports collectifs",
+    img: imagess?.colon11 || fallback,
+    type: "colonies de vacances",
+    description:
+      "Programme d'activités sportives variées pour développer les capacités physiques, l'esprit d'équipe et le fair-play chez les jeunes."
+  },
+  {
+    label: "Colonie de vacances - Veillées animées",
+    img: imagess?.colon12 || fallback,
+    type: "colonies de vacances",
+    description:
+      "Soirées thématiques et veillées autour du feu pour créer des souvenirs mémorables et renforcer les liens entre les participants."
+  },
+  {
+    label: "Colonie de vacances - Restauration équilibrée",
+    img: imagess?.colon13 || fallback,
+    type: "colonies de vacances",
+    description:
+      "Service de restauration adapté aux besoins nutritionnels des enfants et adolescents, avec des menus variés et équilibrés."
+  },
+  {
+    label: "Colonie de vacances - Encadrement professionnel",
+    img: imagess?.colon14 || fallback,
+    type: "colonies de vacances",
+    description:
+      "Équipe d'animateurs qualifiés et attentionnés pour assurer la sécurité et le bien-être des enfants tout au long du séjour."
   },
   {
     label: "Family Day - Activités en groupe",
@@ -669,14 +751,14 @@ const VENUES = [
       "Journées dédiées aux employés et leurs familles avec activités team-building adaptées à tous les âges. Renforcement de la cohésion et culture d'entreprise."
   },
   {
-    label: "Family Day - Animations",
+    label: "Family Day - Animations créatives",
     img: imagess?.Pour_les_Family_day4 || fallback,
     type: "Family day",
     description:
       "Ateliers créatifs, jeux collaboratifs et animations divertissantes pour renforcer les liens familiaux dans un cadre professionnel détendu.",
   },
   {
-    label: "Family Day - Espace détente",
+    label: "Family Day - Espace détente familial",
     img: imagess?.Pour_les_Family_day5 || fallback,
     type: "Family day",
     description:
@@ -690,18 +772,39 @@ const VENUES = [
       "Tournois et défis sportifs adaptés aux participants de tous niveaux. Équipements sécurisés et encadrement par des professionnels.",
   },
   {
-    label: "Family Day - Cérémonie",
+    label: "Family Day - Cérémonie de reconnaissance",
     img: imagess?.Pour_les_Family_day8 || fallback,
     type: "Family day",
     description:
       "Moments de partage et de reconnaissance pour célébrer les succès d'équipe. Remises de prix et cérémonies dans une ambiance festive.",
   },
   {
-    label: "Family Day - Buffet",
-    img: imagess?.Pour_les_Family_day || fallback,
+    label: "Family Day - Buffet gastronomique",
+    img: imagess?.Pour_les_Family_day9 || fallback,
     type: "Family day",
     description:
       "Service de restauration adapté aux goûts de tous avec options variées et équilibrées. Espaces repas agréables et service professionnel.",
+  },
+  {
+    label: "Family Day - Espace enfants",
+    img: imagess?.Pour_les_Family_day11 || fallback,
+    type: "Family day",
+    description:
+      "Zones spécialement aménagées pour les enfants avec animations adaptées, jeux sécurisés et encadrement par des animateurs qualifiés.",
+  },
+  {
+    label: "Family Day - Activités ludiques",
+    img: imagess?.Pour_les_Family_day12 || fallback,
+    type: "Family day",
+    description:
+      "Jeux géants, structures gonflables et activités récréatives pour divertir toute la famille et créer une ambiance joyeuse et détendue.",
+  },
+  {
+    label: "Family Day - Photobooth souvenirs",
+    img: imagess?.Pour_les_Family_day13 || fallback,
+    type: "Family day",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée en famille.",
   },
 ];
 
