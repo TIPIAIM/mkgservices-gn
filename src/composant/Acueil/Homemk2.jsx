@@ -437,7 +437,7 @@ const CreationSection = () => {
               aria-label="Afficher l’image en plein écran"
             >
               <img
-                src={imagess.oloni6}
+                src={imagess.colon6}
                 alt="Projet MKGS"
                 style={{
                   width: "100%",
