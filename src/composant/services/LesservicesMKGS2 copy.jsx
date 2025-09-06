@@ -576,140 +576,132 @@ const fallback = "/placeholder.jpg";
 
 const VENUES = [
   {
-    label: "Décoration Lumineuses Exterieures & interieures lumineuse événementielle",
+    label:
+      "Décoration Lumineuses Exterieures & interieures lumineuse événementielle",
     img: imagess?.coration_lumineuse_imge6 || fallback,
     type: "Décoration Lumineuses Exterieures & interieures",
     description:
-      "Installations lumineuses créatives pour transformer vos espaces en environnement magique et festif. Éclairages LED, guirlandes et structures lumineuses pour événements nocturnes."
+      "Installations lumineuses créatives pour transformer vos espaces en environnement magique et festif. Éclairages LED, guirlandes et structures lumineuses pour événements nocturnes.",
   },
   {
-    label: "Décoration Lumineuses Exterieures & interieures d'ambiance lumineuse",
+    label:
+      "Décoration Lumineuses Exterieures & interieures d'ambiance lumineuse",
     img: imagess?.coration_lumineuse_imge1 || fallback,
     type: "Décoration Lumineuses Exterieures & interieures",
     description:
-      "Création d'ambiances chaleureuses et accueillantes grâce à des éclairages design et des installations lumineuses sur mesure pour tous types d'événements."
+      "Création d'ambiances chaleureuses et accueillantes grâce à des éclairages design et des installations lumineuses sur mesure pour tous types d'événements.",
   },
   {
-    label: "Décoration Lumineuses Exterieures & interieures événementielle complète",
+    label:
+      "Décoration Lumineuses Exterieures & interieures événementielle complète",
     img: imagess?.coration_lumineuse_imge4 || fallback,
     type: "Décoration Lumineuses Exterieures & interieures",
     description:
-      "Design d'espaces sur mesure pour mariages, anniversaires et événements corporatifs. Ambiances thématiques, centres de table élégants et installations artistiques."
+      "Design d'espaces sur mesure pour mariages, anniversaires et événements corporatifs. Ambiances thématiques, centres de table élégants et installations artistiques.",
   },
   {
-    label: "Décoration Lumineuses Exterieures & interieures thématique africaine",
+    label:
+      "Décoration Lumineuses Exterieures & interieures thématique africaine",
     img: imagess?.coration_lumineuse_imge5 || fallback,
     type: "Décoration Lumineuses Exterieures & interieures",
     description:
-      "Création d'univers complets selon vos thèmes préférés. De la Décoration Lumineuses Exterieures & interieures africaine traditionnelle aux ambiances modernes et contemporaines."
+      "Création d'univers complets selon vos thèmes préférés. De la Décoration Lumineuses Exterieures & interieures africaine traditionnelle aux ambiances modernes et contemporaines.",
   },
   {
     label: "Décoration Lumineuses Exterieures & interieures",
     img: imagess?.coration_lumineuse_imge7 || fallback,
     type: "Décoration Lumineuses Exterieures & interieures",
     description:
-      "Solutions d'éclairage professionnel pour mettre en valeur vos espaces et créer des atmosphères uniques. Projecteurs, spots directionnels et effets lumineux."
+      "Solutions d'éclairage professionnel pour mettre en valeur vos espaces et créer des atmosphères uniques. Projecteurs, spots directionnels et effets lumineux.",
   },
   {
     label: "Décoration Lumineuses Exterieures & interieures",
     img: imagess?.coration_lumineuse_imge8 || fallback,
     type: "Décoration Lumineuses Exterieures & interieures",
     description:
-      "Création d'univers complets selon vos thèmes préférés. De la Décoration Lumineuses Exterieures & interieures africaine traditionnelle aux ambiances modernes et contemporaines."
+      "Création d'univers complets selon vos thèmes préférés. De la Décoration Lumineuses Exterieures & interieures africaine traditionnelle aux ambiances modernes et contemporaines.",
   },
   {
     label: "Décoration Lumineuses Exterieures & interieures ",
     img: imagess?.coration_lumineuse_imge9 || fallback,
     type: "Décoration Lumineuses Exterieures & interieures",
     description:
-      "Solutions d'éclairage professionnel pour mettre en valeur vos espaces et créer des atmosphères uniques. "
+      "Solutions d'éclairage professionnel pour mettre en valeur vos espaces et créer des atmosphères uniques. ",
   },
   {
     label: "Décoration Lumineuses Exterieures & interieures festive lumineuse",
     img: imagess?.coration_lumineuse_imge2 || fallback,
     type: "Décoration Lumineuses Exterieures & interieures",
     description:
-      "Installations lumineuses festives pour célébrations et événements spéciaux. Éclairages colorés, effets dynamiques et atmosphères joyeuses."
+      "Installations lumineuses festives pour célébrations et événements spéciaux. Éclairages colorés, effets dynamiques et atmosphères joyeuses.",
   },
   {
     label: "Aménagement extérieur événementiel",
     img: imagess?.amenagement_exterieux7 || fallback,
     type: "amenagement d'espace Touristique",
-    description:
-    " ..."
+    description: " ...",
   },
   {
     label: "Aménagement extérieur événementiel",
-    img: imagess?.amenagement_exterieux15|| fallback,
+    img: imagess?.amenagement_exterieux15 || fallback,
     type: "amenagement d'espace Touristique",
-    description:
-      ".... "
+    description: ".... ",
   },
   {
     label: "Aménagement d'espaces lounge",
     img: imagess?.amenagement_exterieux9 || fallback,
     type: "amenagement d'espace Touristique",
-    description:
-      " ..."
+    description: " ...",
   },
   {
     label: "Aménagement de terrasses événementielles",
     img: imagess?.amenagement_exterieux10 || fallback,
     type: "amenagement d'espace Touristique",
-    description:
-    "... "
+    description: "... ",
   },
-   
+
   {
     label: "Mobilier design pour extérieur",
     img: imagess?.amenagement_exterieux1 || fallback,
     type: "amenagement d'espace Touristique",
-    description:
-    "... "
+    description: "... ",
   },
   {
     label: "Zones thématiques événementielles",
     img: imagess?.amenagement_exterieux2 || fallback,
     type: "amenagement d'espace Touristique",
-    description:
-    "... "
+    description: "... ",
   },
   {
     label: "Amenagement d'espace Touristique",
     img: imagess?.amenagement_exterieux3 || fallback,
     type: "amenagement d'espace Touristique",
-    description:
-    "... "
+    description: "... ",
   },
   {
     label: "Amenagement d'espace Touristique",
     img: imagess?.amenagement_exterieux13 || fallback,
     type: "amenagement d'espace Touristique",
-    description:
-      "..."
+    description: "...",
   },
   {
     label: "Amenagement d'espace Touristique",
     img: imagess?.amenagement_exterieux14 || fallback,
     type: "amenagement d'espace Touristique",
-    description:
-      "..."
+    description: "...",
   },
-
 
   {
     label: "Amenagement d'espace de loisir & air de jeu",
     img: imagess?.amenagement_exterieux13 || fallback,
     type: "Amenagement d'espace de loisir & air de jeu",
-    description:
-      "..."
+    description: "...",
   },
   {
     label: "Amenagement d'espace de loisir & air de jeu",
     img: imagess?.amenagement_exter1 || fallback,
     type: "Amenagement d'espace de loisir & air de jeu",
-    description:
-      "..."
+    description: "...",
   },
 
   {
@@ -717,77 +709,77 @@ const VENUES = [
     img: imagess?.colon7_hobmqm || fallback,
     type: "colonies de vacances",
     description:
-      "Organisation complète de colonies de vacances avec activités éducatives et récréatives. Encadrement professionnel et programme adapté à chaque tranche d'âge."
+      "Organisation complète de colonies de vacances avec activités éducatives et récréatives. Encadrement professionnel et programme adapté à chaque tranche d'âge.",
   },
   {
     label: "Colonie de vacances - Hébergement qualité",
     img: imagess?.colon8 || fallback,
     type: "colonies de vacances",
     description:
-      "Séjours en immersion nature avec hébergement de qualité et restauration équilibrée. Cadre sécurisé et propice à l'épanouissement des enfants et adolescents."
+      "Séjours en immersion nature avec hébergement de qualité et restauration équilibrée. Cadre sécurisé et propice à l'épanouissement des enfants et adolescents.",
   },
   {
     label: "Colonie de vacances - Apprentissage par le jeu",
     img: imagess?.coloni3 || fallback,
     type: "colonies de vacances",
     description:
-      "Programmes éducatifs par le jeu et l'expérience. Développement des compétences sociales, creativity et autonomie dans un environnement supervisé."
+      "Programmes éducatifs par le jeu et l'expérience. Développement des compétences sociales, creativity et autonomie dans un environnement supervisé.",
   },
   {
     label: "Colonie de vacances - Activités de groupe",
     img: imagess?.colon6 || fallback,
     type: "colonies de vacances",
     description:
-      "Jeux coopératifs et activités de team building pour favoriser l'esprit d'équipe et la collaboration entre les jeunes participants."
+      "Jeux coopératifs et activités de team building pour favoriser l'esprit d'équipe et la collaboration entre les jeunes participants.",
   },
   {
     label: "Colonie de vacances - Découverte nature",
     img: imagess?.colon9 || fallback,
     type: "colonies de vacances",
     description:
-      "Activités de pleine nature et sensibilisation à l'environnement pour connecter les jeunes avec la nature et développer leur conscience écologique."
+      "Activités de pleine nature et sensibilisation à l'environnement pour connecter les jeunes avec la nature et développer leur conscience écologique.",
   },
   {
     label: "Colonie de vacances - Expression artistique",
     img: imagess?.colon10 || fallback,
     type: "colonies de vacances",
     description:
-      "Ateliers créatifs et artistiques pour stimuler l'imagination et permettre aux enfants de s'exprimer à travers différentes formes d'art."
+      "Ateliers créatifs et artistiques pour stimuler l'imagination et permettre aux enfants de s'exprimer à travers différentes formes d'art.",
   },
   {
     label: "Colonie de vacances - Sports collectifs",
     img: imagess?.colon11 || fallback,
     type: "colonies de vacances",
     description:
-      "Programme d'activités sportives variées pour développer les capacités physiques, l'esprit d'équipe et le fair-play chez les jeunes."
+      "Programme d'activités sportives variées pour développer les capacités physiques, l'esprit d'équipe et le fair-play chez les jeunes.",
   },
   {
     label: "Colonie de vacances - Veillées animées",
     img: imagess?.colon12 || fallback,
     type: "colonies de vacances",
     description:
-      "Soirées thématiques et veillées autour du feu pour créer des souvenirs mémorables et renforcer les liens entre les participants."
+      "Soirées thématiques et veillées autour du feu pour créer des souvenirs mémorables et renforcer les liens entre les participants.",
   },
   {
     label: "Colonie de vacances - Restauration équilibrée",
     img: imagess?.colon13 || fallback,
     type: "colonies de vacances",
     description:
-      "Service de restauration adapté aux besoins nutritionnels des enfants et adolescents, avec des menus variés et équilibrés."
+      "Service de restauration adapté aux besoins nutritionnels des enfants et adolescents, avec des menus variés et équilibrés.",
   },
   {
     label: "Colonie de vacances - Encadrement professionnel",
     img: imagess?.colon14 || fallback,
     type: "colonies de vacances",
     description:
-      "Équipe d'animateurs qualifiés et attentionnés pour assurer la sécurité et le bien-être des enfants tout au long du séjour."
+      "Équipe d'animateurs qualifiés et attentionnés pour assurer la sécurité et le bien-être des enfants tout au long du séjour.",
   },
   {
     label: "Family Day - Activités en groupe",
     img: imagess?.Pour_les_Family_day1 || fallback,
     type: "Family day",
     description:
-      "Journées dédiées aux employés et leurs familles avec activités team-building adaptées à tous les âges. Renforcement de la cohésion et culture d'entreprise."
+      "Journées dédiées aux employés et leurs familles avec activités team-building adaptées à tous les âges. Renforcement de la cohésion et culture d'entreprise.",
   },
   {
     label: "Family Day - Animations créatives",
@@ -845,185 +837,198 @@ const VENUES = [
     description:
       "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée en famille.",
   },
-//--------------------------
-{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.àmenàgementdespàce || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables .",
-},
-{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.amenagement_exterieux0 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},
-{
-  label:"Location jeux et Attractions",
-  img: imagess?.LocationjeuxAttractions1 || fallback,
-  type: "Location jeux et Attractions",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},
-{
-  label: "Location jeux et Attractions",
-  img: imagess?.LocationjeuxAttractions2 || fallback,
-  type: "Location jeux et Attractions",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Location jeux et Attractions",
-  img: imagess?.LocationjeuxAttractions3 || fallback,
-  type: "Location jeux et Attractions",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},
-{
-  label: "Location jeux et Attractions",
-  img: imagess?.LocationjeuxAttractions4 || fallback,
-  type: "Location jeux et Attractions",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},
+  //--------------------------
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.àmenàgementdespàce || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.amenagement_exterieux0 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Location jeux et Attractions",
+    img: imagess?.LocationjeuxAttractions1 || fallback,
+    type: "Location jeux et Attractions",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Location jeux et Attractions",
+    img: imagess?.LocationjeuxAttractions2 || fallback,
+    type: "Location jeux et Attractions",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Location jeux et Attractions",
+    img: imagess?.LocationjeuxAttractions3 || fallback,
+    type: "Location jeux et Attractions",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Location jeux et Attractions",
+    img: imagess?.LocationjeuxAttractions4 || fallback,
+    type: "Location jeux et Attractions",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
 
-{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos1 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos2 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos3 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos4 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos5 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos6 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos7 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos8 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos9 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos10 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos11 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos12 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos13 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos14 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos15 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos16 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos17 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos18 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-}, 
-
-
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos1 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos2 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos3 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos4 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos5 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos6 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos7 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos8 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos9 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos10 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos11 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos12 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos13 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos14 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos15 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos16 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos17 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
+  {
+    label: "Amenagement d'espaces Photos",
+    img: imagess?.AmenagementespacesPhotos18 || fallback,
+    type: "Amenagement d'espaces Photos",
+    description:
+      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
+  },
 ];
 
 const FILTERS = [
-   
-    
-   
-
- "Family day",//v encour
-  "Team Building",//v
+  "Family day", //v encour
+  "Team Building", //v
   "colonies de vacances",
- 
-  "Amenagement d'espaces Photos",//v
-  "Location jeux et Attractions",//v
-  "amenagement d'espace Touristique",//v
-  "Amenagement d'espace de loisir & air de jeu",//v
-  "Décoration Lumineuses Exterieures & interieures ",//v
+
+  "Amenagement d'espaces Photos", //v
+  "Location jeux et Attractions", //v
+  "amenagement d'espace Touristique", //v
+  "Amenagement d'espace de loisir & air de jeu", //v
+  "Décoration Lumineuses Exterieures & interieures ", //v
   "Street Marketing & Animation commerciale",
   "Approvisionnement et logistique",
   "Location Tente, Chapiteau, Gazon et Estrades pour Évènements",
-
 ];
 
 /* =================== Component =================== */
 const Lesservices = () => {
-  const [filter, setFilter] = useState("Décoration Lumineuses Exterieures & interieures");
+  const [filter, setFilter] = useState(
+    "Décoration Lumineuses Exterieures & interieures"
+  );
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState(0);
   const [zoom, setZoom] = useState(1);
@@ -1075,7 +1080,7 @@ const Lesservices = () => {
   return (
     <Section>
       <Container>
-        {/* Header */}
+        {/* Header De la décoration à l'aménagement d'espaces */}
         <Header
           as={motion.div}
           initial={{ opacity: 0, y: 16 }}
@@ -1088,7 +1093,11 @@ const Lesservices = () => {
             <Overline>Nos services événementiels</Overline>
             <Title>Des prestations sur mesure pour chaque événement</Title>
             <Lead>
-              Décoration complet d'espaces, en passant par l'organisation de colonies de vacances et de Family Days, nous proposons une gamme complète de services pour faire de votre événement un succès. Notre équipe expérimentée assure un accompagnement personnalisé et une exécution impeccable.
+              Décoration complet d'espaces, en passant par l'organisation de
+              colonies de vacances et de Family Days, nous proposons une gamme
+              complète de services pour faire de votre événement un succès.
+              Notre équipe expérimentée assure un accompagnement personnalisé et
+              une exécution impeccable.
             </Lead>
 
             <Filters>

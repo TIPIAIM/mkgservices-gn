@@ -1,5 +1,20 @@
 // src/components/Sections/Lesservices.jsx
-import React, { useEffect, useMemo, useState, useCallback } from "react";
+// Composant principal : garde TON style, ajoute :
+// - liste de catégories “pro” + barre de recherche
+// - 3 lignes max par catégorie + bouton “voir plus / réduire”
+// - messages : “Catégorie inexistante” et “catégorie en maintenance”
+// - optimisation Cloudinary (f=auto, q=auto) + srcSet (DPR 1x/2x)
+// - modal en object-fit: contain (voir l’image en entier)
+//
+// NB: On ne touche pas à ta palette ni à tes animations existantes.
+
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+  useCallback,
+  useRef,
+} from "react";
 import styled, { keyframes } from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -12,9 +27,12 @@ import {
   ChevronLeft,
   Maximize2,
   Minimize2,
+  Search,
+  ChevronsDown,
+  ChevronsUp,
 } from "lucide-react";
 import colors from "../../Styles/colors";
-import { imagess } from "../../assets/imagess";
+import { VENUES, FILTERS as RAW_FILTERS } from "./venuesSemyg";
 
 /* =================== Animations =================== */
 const shimmer = keyframes`
@@ -81,7 +99,7 @@ const Section = styled.section`
   }
 
   @media (max-width: 480px) {
-    padding: 2.5rem 2.2rem;
+    padding: 2.5rem 1.2rem;
   }
 
   @media (max-width: 900px) {
@@ -106,12 +124,6 @@ const Header = styled.div`
 
   @media (max-width: 760px) {
     grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-
     gap: 0.5rem;
   }
 `;
@@ -158,14 +170,43 @@ const Lead = styled.p`
   max-width: 880px;
   line-height: 1.75;
   font-size: clamp(0.98rem, 1.7vw, 1.05rem);
+  margin-left: auto;
+  margin-right: auto;
 `;
 
-/* =================== Filters =================== */
+/* =================== Filters + Search =================== */
+const FiltersWrap = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  margin: 1.2rem 0 1.6rem;
+`;
+
+const SearchBar = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid ${colors.primar}12;
+  background: ${colors.white};
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  max-width: 520px;
+  margin: 0 auto;
+`;
+
+const SearchInput = styled.input`
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 0.98rem;
+  color: ${colors.primary};
+  background: transparent;
+`;
+
 const Filters = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin: 1.2rem 0 1.6rem;
   justify-content: center;
 `;
 
@@ -196,6 +237,14 @@ const Chip = styled(motion.button)`
     font-size: 0.88rem;
     padding: 0.5rem 0.75rem;
   }
+`;
+
+const EmptyStrip = styled.div`
+  width: 100%;
+  text-align: center;
+  color: ${colors.primary};
+  font-weight: 800;
+  padding: 0.6rem 0.8rem;
 `;
 
 /* =================== Grid / Card =================== */
@@ -239,7 +288,7 @@ const Card = styled(motion.button)`
 const Img = styled(motion.img)`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* carte = cover pour occuper toute la carte */
   object-position: center;
   transition: transform 0.35s ease;
 `;
@@ -322,12 +371,37 @@ const ActionButton = styled.button`
   }
 `;
 
+/* ===== Show More button ===== */
+const ShowMoreWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 0.6rem;
+`;
+
+const ShowMoreBtn = styled.button`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid ${colors.primar}22;
+  background: ${colors.white};
+  color: ${colors.primary};
+  font-weight: 800;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: ${colors.accentGold}22;
+  }
+`;
+
 /* =================== Lightbox =================== */
 const Overlay = styled(motion.div)`
   position: fixed;
   inset: 0;
   z-index: 1200;
-  background: ${colors.darkOverlay};
+  background: ${colors.overlayAlpha};
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
@@ -379,7 +453,7 @@ const ControlButton = styled.button`
 const ModalImg = styled(motion.img)`
   width: 100%;
   height: min(76vh, 720px);
-  object-fit: contain;
+  object-fit: contain; /* modal = contain pour voir TOUTE l’image */
   object-position: center;
   cursor: ${({ $zoom }) => ($zoom > 1 ? "grab" : "zoom-in")};
 `;
@@ -571,465 +645,59 @@ const ContactButton = styled.a`
   }
 `;
 
+/* =================== Helpers =================== */
+// Ajoute f=auto & q=auto:good pour Cloudinary et génère un srcSet pour dpr 1/2
+const cld = (url, width = 1200) => {
+  if (!url) return url;
+  const join = url.includes("?") ? "&" : "?";
+  const optimized = `${url}${join}f=auto&q=auto:good`;
+  return {
+    src: optimized,
+    srcSet: `${optimized}&dpr=1 ${width}w, ${optimized}&dpr=2 ${width * 2}w`,
+  };
+};
+
+// Observe le nombre de colonnes pour limiter à 3 lignes (UX souhaitée)
+const useColumns = (ref) => {
+  const [cols, setCols] = useState(3);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const el = ref.current;
+    const ro = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const w = entry.contentRect.width;
+        const min = w <= 900 ? 240 : 280; // cohérent avec le CSS minmax
+        const c = Math.max(1, Math.floor(w / (min + 16))); // 16 ~ gap
+        setCols(c);
+      }
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [ref]);
+
+  return cols;
+};
+
 /* =================== Data =================== */
-const fallback = "/placeholder.jpg";
-
-const VENUES = [
-  {
-    label: "Décoration Lumineuses Exterieures & interieures lumineuse événementielle",
-    img: imagess?.coration_lumineuse_imge6 || fallback,
-    type: "Décoration Lumineuses Exterieures & interieures",
-    description:
-      "Installations lumineuses créatives pour transformer vos espaces en environnement magique et festif. Éclairages LED, guirlandes et structures lumineuses pour événements nocturnes."
-  },
-  {
-    label: "Décoration Lumineuses Exterieures & interieures d'ambiance lumineuse",
-    img: imagess?.coration_lumineuse_imge1 || fallback,
-    type: "Décoration Lumineuses Exterieures & interieures",
-    description:
-      "Création d'ambiances chaleureuses et accueillantes grâce à des éclairages design et des installations lumineuses sur mesure pour tous types d'événements."
-  },
-  {
-    label: "Décoration Lumineuses Exterieures & interieures événementielle complète",
-    img: imagess?.coration_lumineuse_imge4 || fallback,
-    type: "Décoration Lumineuses Exterieures & interieures",
-    description:
-      "Design d'espaces sur mesure pour mariages, anniversaires et événements corporatifs. Ambiances thématiques, centres de table élégants et installations artistiques."
-  },
-  {
-    label: "Décoration Lumineuses Exterieures & interieures thématique africaine",
-    img: imagess?.coration_lumineuse_imge5 || fallback,
-    type: "Décoration Lumineuses Exterieures & interieures",
-    description:
-      "Création d'univers complets selon vos thèmes préférés. De la Décoration Lumineuses Exterieures & interieures africaine traditionnelle aux ambiances modernes et contemporaines."
-  },
-  {
-    label: "Décoration Lumineuses Exterieures & interieures",
-    img: imagess?.coration_lumineuse_imge7 || fallback,
-    type: "Décoration Lumineuses Exterieures & interieures",
-    description:
-      "Solutions d'éclairage professionnel pour mettre en valeur vos espaces et créer des atmosphères uniques. Projecteurs, spots directionnels et effets lumineux."
-  },
-  {
-    label: "Décoration Lumineuses Exterieures & interieures",
-    img: imagess?.coration_lumineuse_imge8 || fallback,
-    type: "Décoration Lumineuses Exterieures & interieures",
-    description:
-      "Création d'univers complets selon vos thèmes préférés. De la Décoration Lumineuses Exterieures & interieures africaine traditionnelle aux ambiances modernes et contemporaines."
-  },
-  {
-    label: "Décoration Lumineuses Exterieures & interieures ",
-    img: imagess?.coration_lumineuse_imge9 || fallback,
-    type: "Décoration Lumineuses Exterieures & interieures",
-    description:
-      "Solutions d'éclairage professionnel pour mettre en valeur vos espaces et créer des atmosphères uniques. "
-  },
-  {
-    label: "Décoration Lumineuses Exterieures & interieures festive lumineuse",
-    img: imagess?.coration_lumineuse_imge2 || fallback,
-    type: "Décoration Lumineuses Exterieures & interieures",
-    description:
-      "Installations lumineuses festives pour célébrations et événements spéciaux. Éclairages colorés, effets dynamiques et atmosphères joyeuses."
-  },
-  {
-    label: "Aménagement extérieur événementiel",
-    img: imagess?.amenagement_exterieux7 || fallback,
-    type: "amenagement d'espace Touristique",
-    description:
-    " ..."
-  },
-  {
-    label: "Aménagement extérieur événementiel",
-    img: imagess?.amenagement_exterieux15|| fallback,
-    type: "amenagement d'espace Touristique",
-    description:
-      ".... "
-  },
-  {
-    label: "Aménagement d'espaces lounge",
-    img: imagess?.amenagement_exterieux9 || fallback,
-    type: "amenagement d'espace Touristique",
-    description:
-      " ..."
-  },
-  {
-    label: "Aménagement de terrasses événementielles",
-    img: imagess?.amenagement_exterieux10 || fallback,
-    type: "amenagement d'espace Touristique",
-    description:
-    "... "
-  },
-   
-  {
-    label: "Mobilier design pour extérieur",
-    img: imagess?.amenagement_exterieux1 || fallback,
-    type: "amenagement d'espace Touristique",
-    description:
-    "... "
-  },
-  {
-    label: "Zones thématiques événementielles",
-    img: imagess?.amenagement_exterieux2 || fallback,
-    type: "amenagement d'espace Touristique",
-    description:
-    "... "
-  },
-  {
-    label: "Amenagement d'espace Touristique",
-    img: imagess?.amenagement_exterieux3 || fallback,
-    type: "amenagement d'espace Touristique",
-    description:
-    "... "
-  },
-  {
-    label: "Amenagement d'espace Touristique",
-    img: imagess?.amenagement_exterieux13 || fallback,
-    type: "amenagement d'espace Touristique",
-    description:
-      "..."
-  },
-  {
-    label: "Amenagement d'espace Touristique",
-    img: imagess?.amenagement_exterieux14 || fallback,
-    type: "amenagement d'espace Touristique",
-    description:
-      "..."
-  },
-
-
-  {
-    label: "Amenagement d'espace de loisir & air de jeu",
-    img: imagess?.amenagement_exterieux13 || fallback,
-    type: "Amenagement d'espace de loisir & air de jeu",
-    description:
-      "..."
-  },
-  {
-    label: "Amenagement d'espace de loisir & air de jeu",
-    img: imagess?.amenagement_exter1 || fallback,
-    type: "Amenagement d'espace de loisir & air de jeu",
-    description:
-      "..."
-  },
-
-  {
-    label: "Colonie de vacances - Activités éducatives",
-    img: imagess?.colon7_hobmqm || fallback,
-    type: "colonies de vacances",
-    description:
-      "Organisation complète de colonies de vacances avec activités éducatives et récréatives. Encadrement professionnel et programme adapté à chaque tranche d'âge."
-  },
-  {
-    label: "Colonie de vacances - Hébergement qualité",
-    img: imagess?.colon8 || fallback,
-    type: "colonies de vacances",
-    description:
-      "Séjours en immersion nature avec hébergement de qualité et restauration équilibrée. Cadre sécurisé et propice à l'épanouissement des enfants et adolescents."
-  },
-  {
-    label: "Colonie de vacances - Apprentissage par le jeu",
-    img: imagess?.coloni3 || fallback,
-    type: "colonies de vacances",
-    description:
-      "Programmes éducatifs par le jeu et l'expérience. Développement des compétences sociales, creativity et autonomie dans un environnement supervisé."
-  },
-  {
-    label: "Colonie de vacances - Activités de groupe",
-    img: imagess?.colon6 || fallback,
-    type: "colonies de vacances",
-    description:
-      "Jeux coopératifs et activités de team building pour favoriser l'esprit d'équipe et la collaboration entre les jeunes participants."
-  },
-  {
-    label: "Colonie de vacances - Découverte nature",
-    img: imagess?.colon9 || fallback,
-    type: "colonies de vacances",
-    description:
-      "Activités de pleine nature et sensibilisation à l'environnement pour connecter les jeunes avec la nature et développer leur conscience écologique."
-  },
-  {
-    label: "Colonie de vacances - Expression artistique",
-    img: imagess?.colon10 || fallback,
-    type: "colonies de vacances",
-    description:
-      "Ateliers créatifs et artistiques pour stimuler l'imagination et permettre aux enfants de s'exprimer à travers différentes formes d'art."
-  },
-  {
-    label: "Colonie de vacances - Sports collectifs",
-    img: imagess?.colon11 || fallback,
-    type: "colonies de vacances",
-    description:
-      "Programme d'activités sportives variées pour développer les capacités physiques, l'esprit d'équipe et le fair-play chez les jeunes."
-  },
-  {
-    label: "Colonie de vacances - Veillées animées",
-    img: imagess?.colon12 || fallback,
-    type: "colonies de vacances",
-    description:
-      "Soirées thématiques et veillées autour du feu pour créer des souvenirs mémorables et renforcer les liens entre les participants."
-  },
-  {
-    label: "Colonie de vacances - Restauration équilibrée",
-    img: imagess?.colon13 || fallback,
-    type: "colonies de vacances",
-    description:
-      "Service de restauration adapté aux besoins nutritionnels des enfants et adolescents, avec des menus variés et équilibrés."
-  },
-  {
-    label: "Colonie de vacances - Encadrement professionnel",
-    img: imagess?.colon14 || fallback,
-    type: "colonies de vacances",
-    description:
-      "Équipe d'animateurs qualifiés et attentionnés pour assurer la sécurité et le bien-être des enfants tout au long du séjour."
-  },
-  {
-    label: "Family Day - Activités en groupe",
-    img: imagess?.Pour_les_Family_day1 || fallback,
-    type: "Family day",
-    description:
-      "Journées dédiées aux employés et leurs familles avec activités team-building adaptées à tous les âges. Renforcement de la cohésion et culture d'entreprise."
-  },
-  {
-    label: "Family Day - Animations créatives",
-    img: imagess?.Pour_les_Family_day4 || fallback,
-    type: "Family day",
-    description:
-      "Ateliers créatifs, jeux collaboratifs et animations divertissantes pour renforcer les liens familiaux dans un cadre professionnel détendu.",
-  },
-  {
-    label: "Family Day - Espace détente familial",
-    img: imagess?.Pour_les_Family_day5 || fallback,
-    type: "Family day",
-    description:
-      "Zones aménagées spécialement pour le confort et la détente des familles. Espaces lounge, jeux calmes et coins repas conviviaux.",
-  },
-  {
-    label: "Family Day - Activités sportives",
-    img: imagess?.Pour_les_Family_day6 || fallback,
-    type: "Family day",
-    description:
-      "Tournois et défis sportifs adaptés aux participants de tous niveaux. Équipements sécurisés et encadrement par des professionnels.",
-  },
-  {
-    label: "Family Day - Cérémonie de reconnaissance",
-    img: imagess?.Pour_les_Family_day8 || fallback,
-    type: "Family day",
-    description:
-      "Moments de partage et de reconnaissance pour célébrer les succès d'équipe. Remises de prix et cérémonies dans une ambiance festive.",
-  },
-  {
-    label: "Family Day - Buffet gastronomique",
-    img: imagess?.Pour_les_Family_day9 || fallback,
-    type: "Family day",
-    description:
-      "Service de restauration adapté aux goûts de tous avec options variées et équilibrées. Espaces repas agréables et service professionnel.",
-  },
-  {
-    label: "Family Day - Espace enfants",
-    img: imagess?.Pour_les_Family_day11 || fallback,
-    type: "Family day",
-    description:
-      "Zones spécialement aménagées pour les enfants avec animations adaptées, jeux sécurisés et encadrement par des animateurs qualifiés.",
-  },
-  {
-    label: "Family Day - Activités ludiques",
-    img: imagess?.Pour_les_Family_day12 || fallback,
-    type: "Family day",
-    description:
-      "Jeux géants, structures gonflables et activités récréatives pour divertir toute la famille et créer une ambiance joyeuse et détendue.",
-  },
-  {
-    label: "Family Day - Photobooth souvenirs",
-    img: imagess?.Pour_les_Family_day13 || fallback,
-    type: "Family day",
-    description:
-      "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée en famille.",
-  },
-//--------------------------
-{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.àmenàgementdespàce || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables .",
-},
-{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.amenagement_exterieux0 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},
-{
-  label:"Location jeux et Attractions",
-  img: imagess?.LocationjeuxAttractions1 || fallback,
-  type: "Location jeux et Attractions",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},
-{
-  label: "Location jeux et Attractions",
-  img: imagess?.LocationjeuxAttractions2 || fallback,
-  type: "Location jeux et Attractions",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Location jeux et Attractions",
-  img: imagess?.LocationjeuxAttractions3 || fallback,
-  type: "Location jeux et Attractions",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},
-{
-  label: "Location jeux et Attractions",
-  img: imagess?.LocationjeuxAttractions4 || fallback,
-  type: "Location jeux et Attractions",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},
-
-{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos1 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos2 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos3 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos4 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos5 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos6 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos7 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos8 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos9 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos10 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos11 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos12 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos13 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos14 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos15 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos16 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos17 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-},{
-  label: "Amenagement d'espaces Photos",
-  img: imagess?.AmenagementespacesPhotos18 || fallback,
-  type: "Amenagement d'espaces Photos",
-  description:
-    "Stations photo avec accessoires et fonds thématiques pour capturer des souvenirs mémorables de cette journée .",
-}, 
-
-
-];
-
-const FILTERS = [
-   
-    
-   
-
- "Family day",//v encour
-  "Team Building",//v
-  "colonies de vacances",
- 
-  "Amenagement d'espaces Photos",//v
-  "Location jeux et Attractions",//v
-  "amenagement d'espace Touristique",//v
-  "Amenagement d'espace de loisir & air de jeu",//v
-  "Décoration Lumineuses Exterieures & interieures ",//v
-  "Street Marketing & Animation commerciale",
-  "Approvisionnement et logistique",
-  "Location Tente, Chapiteau, Gazon et Estrades pour Évènements",
-
-];
+const whatsappNumber = "+224625494848";
 
 /* =================== Component =================== */
 const Lesservices = () => {
-  const [filter, setFilter] = useState("Décoration Lumineuses Exterieures & interieures");
+  const [filter, setFilter] = useState(
+    "Décoration Lumineuses Exterieures & interieures"
+  );
+  const [search, setSearch] = useState("");
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState(0);
   const [zoom, setZoom] = useState(1);
   const [dragging, setDragging] = useState(false);
   const [infoIdx, setInfoIdx] = useState(null);
-  const whatsappNumber = "+224625494848";
+  const [expanded, setExpanded] = useState(false); // “voir plus / réduire”
+
+  const gridRef = useRef(null);
+  const columns = useColumns(gridRef);
+  const maxRows = 3;
 
   // Close with ESC
   useEffect(() => {
@@ -1043,11 +711,30 @@ const Lesservices = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const data = useMemo(
-    () =>
-      filter === "Tous" ? VENUES : VENUES.filter((v) => v.type === filter),
+  // Recherche dans la liste des catégories (pas dans les cartes)
+  const FILTERS = useMemo(() => {
+    if (!search.trim()) return RAW_FILTERS;
+    const q = search.toLowerCase();
+    const list = RAW_FILTERS.filter((f) => f.toLowerCase().includes(q));
+    return list;
+  }, [search]);
+
+  const hasFilterMatch = FILTERS.length > 0;
+
+  // Jeux de données par catégorie
+  const categoryData = useMemo(
+    () => VENUES.filter((v) => v.type === filter),
     [filter]
   );
+
+  // “Maintenance” si la catégorie existe mais aucune image
+  const isMaintenance = hasFilterMatch && categoryData.length === 0;
+
+  // Limiteur à 3 lignes (calculé selon colonnes observées)
+  const visibleCount = expanded
+    ? categoryData.length
+    : Math.min(categoryData.length, columns * maxRows);
+  const data = categoryData.slice(0, visibleCount);
 
   const openModal = (index) => {
     setCurrent(index);
@@ -1068,9 +755,10 @@ const Lesservices = () => {
 
   const toggleZoom = useCallback(() => setZoom((z) => (z === 1 ? 1.5 : 1)), []);
 
-  const openWhatsApp = () => {
-    window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`, "_blank");
-  };
+  // Reset “voir plus” quand on change de catégorie ou la recherche
+  useEffect(() => {
+    setExpanded(false);
+  }, [filter, search]);
 
   return (
     <Section>
@@ -1088,62 +776,115 @@ const Lesservices = () => {
             <Overline>Nos services événementiels</Overline>
             <Title>Des prestations sur mesure pour chaque événement</Title>
             <Lead>
-              Décoration complet d'espaces, en passant par l'organisation de colonies de vacances et de Family Days, nous proposons une gamme complète de services pour faire de votre événement un succès. Notre équipe expérimentée assure un accompagnement personnalisé et une exécution impeccable.
+            Décoration complet d'espaces, en passant par l'organisation de
+              colonies de vacances et de Family Days, nous proposons une gamme
+              complète de services pour faire de votre événement un succès.
+              Notre équipe expérimentée assure un accompagnement personnalisé et
+              une exécution impeccable.
             </Lead>
 
-            <Filters>
-              {FILTERS.map((f) => (
-                <Chip
-                  key={f}
-                  $active={filter === f}
-                  onClick={() => setFilter(f)}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  {f}
-                </Chip>
-              ))}
-            </Filters>
+            {/* Recherche + Catégories */}
+            <FiltersWrap>
+              <SearchBar>
+                <Search size={18} color={colors.primary} />
+                <SearchInput
+                  type="text"
+                  placeholder="Rechercher une catégorie…"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </SearchBar>
+
+              <Filters>
+                {!hasFilterMatch && (
+                  <EmptyStrip>Catégorie inexistante.</EmptyStrip>
+                )}
+                {hasFilterMatch &&
+                  FILTERS.map((f) => (
+                    <Chip
+                      key={f}
+                      $active={filter === f}
+                      onClick={() => setFilter(f)}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      {f}
+                    </Chip>
+                  ))}
+              </Filters>
+            </FiltersWrap>
           </TitleWrap>
         </Header>
 
-        {/* Grid */}
-        <Grid>
-          {data.map((v, i) => (
-            <Card
-              key={`${v.label}-${i}`}
-              onClick={() => openModal(i)}
-              whileHover={{ y: -4 }}
-              transition={{ type: "spring", stiffness: 320, damping: 22 }}
-              aria-label={`Voir ${v.label} en grand`}
-              onContextMenu={(e) => {
-                e.preventDefault();
-                setInfoIdx(i);
-              }}
-            >
-              <Img
-                src={v.img}
-                alt={v.label}
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.35 }}
-                loading="lazy"
-                decoding="async"
-              />
-              <Shade />
-              <Shine />
-              <CardContent>
-                <CardTitle>
-                  <Building2 size={16} />
-                  {v.label}
-                </CardTitle>
-                <CardType>{v.type}</CardType>
-              </CardContent>
-              <ActionButton aria-label="Voir en détail">
-                <ZoomIn size={18} />
-              </ActionButton>
-            </Card>
-          ))}
-        </Grid>
+        {/* Etats : maintenance / data */}
+        {isMaintenance ? (
+          <EmptyStrip>⚠️ Cette catégorie est en maintenance.</EmptyStrip>
+        ) : (
+          <>
+            {/* Grid */}
+            <Grid ref={gridRef}>
+              {data.map((v, i) => {
+                const img = cld(v.img, 1000);
+                return (
+                  <Card
+                    key={`${v.label}-${i}`}
+                    onClick={() => openModal(i)}
+                    whileHover={{ y: -4 }}
+                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                    aria-label={`Voir ${v.label} en grand`}
+                    onContextMenu={(e) => {
+                      e.preventDefault();
+                      setInfoIdx(i);
+                    }}
+                  >
+                    <Img
+                      src={img.src}
+                      srcSet={img.srcSet}
+                      sizes="(max-width:540px) 100vw, (max-width:900px) 50vw, 33vw"
+                      alt={v.label}
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.35 }}
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    />
+                    <Shade />
+                    <Shine />
+                    <CardContent>
+                      <CardTitle>
+                        <Building2 size={16} />
+                        {v.label}
+                      </CardTitle>
+                      <CardType>{v.type}</CardType>
+                    </CardContent>
+                    <ActionButton aria-label="Voir en détail">
+                      <ZoomIn size={18} />
+                    </ActionButton>
+                  </Card>
+                );
+              })}
+            </Grid>
+
+            {/* Voir plus / Réduire (si besoin) */}
+            {categoryData.length > columns * maxRows && (
+              <ShowMoreWrap>
+                <ShowMoreBtn onClick={() => setExpanded((s) => !s)}>
+                  {expanded ? (
+                    <>
+                      <ChevronsUp size={18} />
+                      Réduire l’affichage
+                    </>
+                  ) : (
+                    <>
+                      <ChevronsDown size={18} />
+                      Voir la suite ({categoryData.length - columns * maxRows})
+                    </>
+                  )}
+                </ShowMoreBtn>
+              </ShowMoreWrap>
+            )}
+          </>
+        )}
       </Container>
 
       {/* Lightbox */}
@@ -1166,7 +907,7 @@ const Lesservices = () => {
             >
               <ModalControls>
                 <ControlButton
-                  onClick={toggleZoom}
+                  onClick={() => setZoom((z) => (z === 1 ? 1.5 : 1))}
                   aria-label={zoom === 1 ? "Zoomer" : "Dézoomer"}
                 >
                   {zoom === 1 ? (
@@ -1204,37 +945,46 @@ const Lesservices = () => {
                 </NavButton>
               </NavigationButtons>
 
-              <ModalImg
-                key={current}
-                src={data[current].img}
-                alt={data[current].label}
-                animate={{ scale: zoom }}
-                transition={{ type: "spring", stiffness: 240, damping: 20 }}
-                onDoubleClick={toggleZoom}
-                drag={zoom > 1}
-                dragConstraints={{
-                  left: -220,
-                  right: 220,
-                  top: -220,
-                  bottom: 220,
-                }}
-                onDragStart={() => setDragging(true)}
-                onDragEnd={() => setDragging(false)}
-                $zoom={zoom}
-              />
+              {data[current] && (
+                <ModalImg
+                  key={current}
+                  src={cld(data[current].img, 1600).src}
+                  srcSet={cld(data[current].img, 1600).srcSet}
+                  sizes="100vw"
+                  alt={data[current].label}
+                  animate={{ scale: zoom }}
+                  transition={{ type: "spring", stiffness: 240, damping: 20 }}
+                  onDoubleClick={() => setZoom((z) => (z === 1 ? 1.5 : 1))}
+                  drag={zoom > 1}
+                  dragConstraints={{
+                    left: -220,
+                    right: 220,
+                    top: -220,
+                    bottom: 220,
+                  }}
+                  onDragStart={() => setDragging(true)}
+                  onDragEnd={() => setDragging(false)}
+                  $zoom={zoom}
+                />
+              )}
 
               <ModalFooter>
                 <ModalTitle>
                   <MapPin size={16} />
-                  {data[current].label}
+                  {data[current]?.label}
                 </ModalTitle>
                 <ZoomHint>
                   {zoom === 1 ? (
-                    <Maximize2 size={16} />
+                    <>
+                      <Maximize2 size={16} />
+                      Double-clic pour zoomer
+                    </>
                   ) : (
-                    <Minimize2 size={16} />
+                    <>
+                      <Minimize2 size={16} />
+                      Double-clic pour dézoomer
+                    </>
                   )}
-                  Double-clic pour {zoom === 1 ? "zoomer" : "dézoomer"}
                 </ZoomHint>
               </ModalFooter>
             </Modal>
@@ -1242,9 +992,9 @@ const Lesservices = () => {
         )}
       </AnimatePresence>
 
-      {/* Info Panel */}
+      {/* Info Panel (clic droit) */}
       <AnimatePresence>
-        {infoIdx !== null && (
+        {infoIdx !== null && data[infoIdx] && (
           <InfoPanel
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
