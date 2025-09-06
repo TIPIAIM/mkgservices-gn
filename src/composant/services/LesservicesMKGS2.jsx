@@ -697,7 +697,7 @@ const Lesservices = () => {
 
   const gridRef = useRef(null);
   const columns = useColumns(gridRef);
-  const maxRows = 3;
+  const maxRows = 2;
 
   // Close with ESC
   useEffect(() => {
