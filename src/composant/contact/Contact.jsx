@@ -477,9 +477,10 @@ const Contact = () => {
           "partenariat Guinée",
           "WhatsApp MK Globale Services",
           "numéro MKGS",
+          "MKGS",
           "MK Global Services contact"
         ]}
-        
+
           url="https://www.mkgservices-gn.com/contact"
           image={imagess.àlphà}
           type="website"
