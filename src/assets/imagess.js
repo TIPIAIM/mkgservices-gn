@@ -133,12 +133,7 @@ AmenagementespacesPhotos16:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1
 AmenagementespacesPhotos17:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150073/Amenagement_espaces_Photos2_t5fhsk.jpg",
 AmenagementespacesPhotos18:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150071/Amenagement_espaces_Photos1_vwgobu.jpg",
 
-
-
-
-
-
-
+ 
 Pour_les_Family_day8: 'https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196264/Pour_les_Family_day8_s0nrlm.jpg',
 Pour_les_Family_day5: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195791/Pour_les_Family_day5_jnjkan.jpg",
 Pour_les_Family_day4:'https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195770/Pour_les_Family_day4_t1kybg.jpg',
@@ -151,4 +146,5 @@ Pour_les_Family_day12:"https://res.cloudinary.com/dueu8nf5j/image/upload/v175613
 Pour_les_Family_day13:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132651/Pour_les_Family_day7_jehah7.jpg",
 
 
+logomkgservice: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757275474/logomkfontbl%C3%A0nc_khrx92.png"
 };

@@ -307,7 +307,8 @@ const APropos = () => {
   const seoTitle = "Qui sommes-nous ? | MK Globale Services GN";
   const seoDescription =
     "MK Globale Services accompagne les acteurs publics et privés en Guinée dans l’aménagement d’espaces, l’animation événementielle, la décoration lumineuse et la création d’expériences de loisirs. Notre engagement : sécurité, innovation et impact durable.";
-  const seoKeywords = [
+  
+    const seoKeywords = [
     "MK Globale Services",
     "aménagement Guinée",
     "événementiel Conakry",
@@ -315,6 +316,8 @@ const APropos = () => {
     "décoration lumineuse",
     "espaces de loisirs",
     "gestion événementielle",
+    "Moussadjan Kaba",
+    "Moussa djan Kaba",
     "activation commerciale",
     "courtage international",
   ];

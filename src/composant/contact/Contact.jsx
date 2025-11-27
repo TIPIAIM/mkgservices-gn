@@ -461,20 +461,25 @@ const Contact = () => {
         transition={{ duration: 0.6 }}
       >
         <SEO
-          title="Contactez-nous | Cauris Investment Guinée"
-          description="Contactez notre équipe Cauris Investment pour toute demande d'information, devis ou partenariat. Réponse rapide par e-mail, WhatsApp ou téléphone."
-          keywords={[
-            "contact",
-            "Cauris Investment",
-            "immobilier Guinée",
-            "investissement Guinée",
-            "partenariat",
-            "demande de devis",
-            "projets immobiliers",
-            "WhatsApp Cauris",
-            "numéro téléphone",
-            "adresse Cauris",
-          ]}
+        title="Contactez-nous | MK Globale Services GN"
+        description="Contactez MK Globale Services GN pour toute demande d’aménagement, d’événement professionnel, de décoration lumineuse ou d’activation commerciale. Notre équipe vous répond rapidement par e-mail, WhatsApp ou téléphone."
+        keywords={[
+          "contact MK Globale Services",
+          "MKGS Guinée",
+          "événementiel Conakry",
+          "aménagement espaces Guinée",
+          "décoration lumineuse Guinée",
+          "activation commerciale",
+          "street marketing Guinée",
+          "team building Guinée",
+          "family day Conakry",
+          "demande de devis MKGS",
+          "partenariat Guinée",
+          "WhatsApp MK Globale Services",
+          "numéro MKGS",
+          "MK Global Services contact"
+        ]}
+        
           url="https://www.mkgservices-gn.com/contact"
           image={imagess.àlphà}
           type="website"

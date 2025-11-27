@@ -77,23 +77,46 @@ function Projet() {
   const isInView = useInView(ref, { once: false, margin: "-20% 0px" });
 
   // SEO DATA
-  const seoTitle = "Projet | Portefeuille, Partenariats, Valeur et ESG - Cauris Investment";
+   const seoTitle =
+  "Projets & Réalisations | Aménagement, Événementiel, Partenariats & Impact - MK Globale Services GN";
   const seoDescription =
-    "Découvrez l'ensemble de notre portefeuille immobilier sélectif, nos modèles de partenariat et structuration d'investissement, nos sources de revenus, notre démarche ESG & impact, ainsi que notre gouvernance et gestion des risques. Investissez avec transparence, expertise et sécurité avec Cauris Investment.";
-  const seoImage = imagess.imàgelogostextetrànspàrente || imagess.imàgelogosimpletrànspàrente;
-  const seoKeywords = [
-    "Cauris Investment",
-    "immobilier Guinée",
-    "portefeuille immobilier",
-    "partenariat investissement",
-    "ESG",
-    "impact communautaire",
-    "gouvernance",
-    "gestion des risques",
+  "Découvrez les projets phares de MK Globale Services GN : aménagements d’espaces, événements corporate, décorations lumineuses et créations de loisirs sur mesure. Nous concevons, produisons et opérons des expériences durables alliant innovation, sécurité et impact positif en Guinée et en Afrique de l’Ouest.";
 
-    "valeur ajoutée","cauris investment", "holding immobilière", "guinée", "république de guinée", "investissement durable", "contrats long terme",  "environnemental social gouvernance", "logements abordables", "services communautaires", "emploi local", "indicateurs d'impact", "unités livrées", "emplois créés", "fournisseurs locaux", "capacités scolaires", "gouvernance", "vérification cadastrale", "audits techniques", "phasage financier", "milestones", "reporting", "comité de pilotage", "assurance chantier", "processus investisseur", "engagement"
+   const seoImage = imagess.imàgelogostextetrànspàrente || imagess.imàgelogosimpletrànspàrente;
+  const seoKeywords = [
+    "MK Globale Services GN",
+    "Globale Services","Globale Services","MK",
+    "aménagement Guinée",
+    "événementiel Conakry",
+    "décoration lumineuse",
+    "espaces de loisirs",
+    "street marketing",
+    "activation commerciale",
+    "partenariat public privé",
+    "impact social Guinée",
+    "expériences immersives",
+    "family days",
+    "team building",
+    "animation professionnelle",
+    "projets événementiels",
+    "innovation durable",
+    "infrastructure événementielle",
+    "sécurité et conformité",
+    "gestion logistique",
+    "solutions clé en main",
+    "valeur ajoutée Guinée",
+    "MKGS",
+    "MK Global Services",
+    "aménagement événementiel",
+    "éclairage artistique",
+    "événement d’entreprise",
+    "Guinée",
+    "Afrique de l’Ouest",
+    "production événementielle",
+    "design d’expérience",
+    "gestion opérationnelle",
   ];
-  const seoUrl = "https://www.caurisinvestment.com/projets";
+  const seoUrl = "https://www.mkgservices-gn.com/projets";
 
   return (
     <ProjectContainer

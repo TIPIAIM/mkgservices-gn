@@ -499,6 +499,7 @@ const DomainesExpertiseGrid = memo(function DomainesExpertiseGrid() {
         url={pageUrl}
         keywords={[
           "MK Global Services GN",
+          "MK Global Services-GN",
           "aménagement Guinée",
           "éco-construction",
           "événementiel Conakry",
