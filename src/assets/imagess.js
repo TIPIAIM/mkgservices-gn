@@ -1,7 +1,6 @@
 // src/assets/imagess.js
- 
+
 export const imagess = {
-  
   moussakaba:
     "https://res.cloudinary.com/dueu8nf5j/image/upload/e_background_removal/b_rgb:FFFFFF/c_fill,ar_1:1,f_png/v1753214100/mouss_vnndnn.avif",
 
@@ -14,9 +13,10 @@ export const imagess = {
   //temoignàge Pour_les_Family_day4
   moussakaba:
     "https://res.cloudinary.com/dueu8nf5j/image/upload/e_background_removal/b_rgb:FFFFFF/c_fill,ar_1:1,f_png/v1753214100/mouss_vnndnn.avif",
-  
-  moussakaba2:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1754415127/WhatsApp_Image_2025-08-04_at_15.34.49_ngai7j.jpg",
-    paul: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1751718582/MOE_0311_nxvggf.avif",
+
+  moussakaba2:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1754415127/WhatsApp_Image_2025-08-04_at_15.34.49_ngai7j.jpg",
+  paul: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1751718582/MOE_0311_nxvggf.avif",
   naroumb:
     "https://res.cloudinary.com/dueu8nf5j/image/upload/v1751718587/naroumb_nzdfr4.avif",
   keitaseul2:
@@ -52,99 +52,266 @@ export const imagess = {
     " https://res.cloudinary.com/dueu8nf5j/image/upload/v1754422954/esp%C3%A0ce_lr3gpm.jpg",
   femmecourr:
     "https://res.cloudinary.com/dueu8nf5j/image/upload/v1754422934/femme_bafvu1.jpg",
-  
 
-  coloni3:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193031/coloni3_y6zaq7.jpg",
-  colon7_hobmqm: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193054/colon7_hobmqm.jpg",
-  colon6: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193042/coloni6_p0byh1.jpg",
-  colon8: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193056/colon8_ydmvdd.jpg",
-  colon9:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193061/coloni2_vglbgb.jpg",
-  colon10:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193060/coloni1_avmvpz.jpg",
-  colon11:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193051/colonigr%C3%A0nd11_jkzjtl.jpg",
-  colon12:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193048/colonigr%C3%A0nd10_adyyk2.jpg",
-  colon13:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193044/coloni9_qmtpzq.jpg",
-  colon14:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193042/coloni6_p0byh1.jpg",
-  colon15:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193038/coloni5_ezreqj.jpg",
-  colon16:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193035/coloni4_slbia8.jpg",
-  colon17:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193029/ec0fcc50-6107-4fc8-9a89-8f4d144b169c_nxmsrz.jpg",
-  colon18:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193021/colonigr%C3%A0nd13_pbwq8o.jpg",
-  colon19:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193017/colonigr%C3%A0nd12_pxguru.jpg",
- 
+  coloni3:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193031/coloni3_y6zaq7.jpg",
+  colon7_hobmqm:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193054/colon7_hobmqm.jpg",
+  colon6:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193042/coloni6_p0byh1.jpg",
+  colon8:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193056/colon8_ydmvdd.jpg",
+  colon9:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193061/coloni2_vglbgb.jpg",
+  colon10:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193060/coloni1_avmvpz.jpg",
+  colon11:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193051/colonigr%C3%A0nd11_jkzjtl.jpg",
+  colon12:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193048/colonigr%C3%A0nd10_adyyk2.jpg",
+  colon13:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193044/coloni9_qmtpzq.jpg",
+  colon14:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193042/coloni6_p0byh1.jpg",
+  colon15:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193038/coloni5_ezreqj.jpg",
+  colon16:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193035/coloni4_slbia8.jpg",
+  colon17:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193029/ec0fcc50-6107-4fc8-9a89-8f4d144b169c_nxmsrz.jpg",
+  colon18:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193021/colonigr%C3%A0nd13_pbwq8o.jpg",
+  colon19:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193017/colonigr%C3%A0nd12_pxguru.jpg",
 
+  teàmmkgs:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195688/te%C3%A0m_dymzoa.jpg",
 
-teàmmkgs :"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195688/te%C3%A0m_dymzoa.jpg",
+  //amenagement d'espace Touristique
+  amenagement_exterieux9:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1756131342/amenagement_exterieux73d_vnrb1z.jpg",
+  amenagement_exterieux3:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196875/amenagement_exterieux3_lhnpqk.jpg",
+  amenagement_exterieux2:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196875/amenagement_exterieux2_pdppyd.jpg",
+  amenagement_exterieux1:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196869/amenagement_exterieux1_fwu3gz.jpg",
+  amenagement_exterieux:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196868/amenagement_exterieux_jhrzme.jpg",
+  amenagement_exterieux7:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755192827/%C3%A0men%C3%A0_wzp2gh.jpg ",
+  amenagement_exterieux8:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755192823/%C3%A0menetenu_qd7fqh.jpg ",
+  amenagement_exterieux10:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1756131341/amenagement_exterieux63d_lzcq7g.jpg",
+  amenagement_exterieux13:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757152081/%C3%A0me_%C3%A0gement_w23xg8.jpg",
+  amenagement_exterieux14:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757152334/%C3%A0men%C3%A0gementt_ea1cfr.png",
+  amenagement_exterieux15:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757152914/%C3%A0men%C3%A0gement00_cxfuwr.png",
 
-//amenagement d'espace Touristique
-amenagement_exterieux9:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1756131342/amenagement_exterieux73d_vnrb1z.jpg",
-amenagement_exterieux3:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196875/amenagement_exterieux3_lhnpqk.jpg",
-amenagement_exterieux2:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196875/amenagement_exterieux2_pdppyd.jpg",
-amenagement_exterieux1:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196869/amenagement_exterieux1_fwu3gz.jpg",
-amenagement_exterieux:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196868/amenagement_exterieux_jhrzme.jpg",
-amenagement_exterieux7:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755192827/%C3%A0men%C3%A0_wzp2gh.jpg ",
-amenagement_exterieux8:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755192823/%C3%A0menetenu_qd7fqh.jpg ",
-amenagement_exterieux10:" https://res.cloudinary.com/dueu8nf5j/image/upload/v1756131341/amenagement_exterieux63d_lzcq7g.jpg",
-amenagement_exterieux13:'https://res.cloudinary.com/dueu8nf5j/image/upload/v1757152081/%C3%A0me_%C3%A0gement_w23xg8.jpg',
-amenagement_exterieux14:'https://res.cloudinary.com/dueu8nf5j/image/upload/v1757152334/%C3%A0men%C3%A0gementt_ea1cfr.png',
-amenagement_exterieux15:'https://res.cloudinary.com/dueu8nf5j/image/upload/v1757152914/%C3%A0men%C3%A0gement00_cxfuwr.png',
+  //Amenagement d'espace de loisir & air de jeu
+  amenagement_exter1:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757153224/%C3%A0men%C3%A0g_i1vvtz.heic",
+  amenagement_exter2: "",
 
-//Amenagement d'espace de loisir & air de jeu 
-amenagement_exter1:'https://res.cloudinary.com/dueu8nf5j/image/upload/v1757153224/%C3%A0men%C3%A0g_i1vvtz.heic',
-amenagement_exter2:'',
+  //àmenàgementdespàce
+  àmenàgementdespàce:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757106633/%C3%A0men%C3%A0gementdesp%C3%A0ce_qqigkk.heic",
+  amenagement_exterieux0:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196872/pourenf%C3%A0n5_ib8ifc.jpg",
+  //Location jeux et Attractions
+  LocationjeuxAttractions1:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757109098/Location_jeux_et_Attractions4_bkhwyq.jpg",
+  LocationjeuxAttractions2:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757109097/Location_jeux_et_Attractions3_vxhzgz.jpg",
+  LocationjeuxAttractions3:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757109092/Location_jeux_et_Attractions1_w1c3d4.jpg",
+  LocationjeuxAttractions4:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757109091/Location_jeux_et_Attractions2_rzbf2s.jpg",
 
+  //decoràtion limineux
+  coration_lumineuse_imge7:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757147369/decor%C3%A0tionlumineux1_rojtls.jpg",
+  coration_lumineuse_imge8:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757147370/decor%C3%A0tionlumineux4_bg976q.jpg",
+  coration_lumineuse_imge9:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757147367/decor%C3%A0tionlumineux2_nnxb5i.jpg",
+  //coration_lumineuse_imge10:"",
+  coration_lumineuse_imge5:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193414/D%C3%A9coration_lumineuse_imge5_o7ostr.jpg",
+  coration_lumineuse_imge1:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193406/D%C3%A9coration_lumineuse_imge1_vsxbkn.jpg",
+  coration_lumineuse_imge3:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193410/D%C3%A9coration_lumineuse_imge3_vazwfa.jpg",
+  coration_lumineuse_imge2:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193410/D%C3%A9coration_lumineuse_imge2_cvpyei.jpg",
+  coration_lumineuse_imge4:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193411/D%C3%A9coration_lumineuse_imge4_f1vlny.jpg",
+  coration_lumineuse_imge6:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1756130268/D%C3%A9coration_lumineuse_imge5lesgens_nvn0e7.jpg",
 
-//àmenàgementdespàce
-àmenàgementdespàce:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757106633/%C3%A0men%C3%A0gementdesp%C3%A0ce_qqigkk.heic",
-amenagement_exterieux0:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196872/pourenf%C3%A0n5_ib8ifc.jpg",
-//Location jeux et Attractions
-LocationjeuxAttractions1:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757109098/Location_jeux_et_Attractions4_bkhwyq.jpg",
-LocationjeuxAttractions2:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757109097/Location_jeux_et_Attractions3_vxhzgz.jpg",
-LocationjeuxAttractions3:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757109092/Location_jeux_et_Attractions1_w1c3d4.jpg",
-LocationjeuxAttractions4:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757109091/Location_jeux_et_Attractions2_rzbf2s.jpg",
+  //Amenagement d'espaces Photos
+  AmenagementespacesPhotos1:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150231/Amenagement_espaces_Photos17_nppzrx.jpg",
+  AmenagementespacesPhotos2:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150204/Amenagement_espaces_Photos5_mb33ad.jpg",
+  AmenagementespacesPhotos3:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150202/Amenagement_espaces_Photos13_odl6is.heic",
+  AmenagementespacesPhotos4:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150195/WhatsApp_Image_2025-07-16_at_14.00.26_3_di6pcx.jpg",
+  AmenagementespacesPhotos5:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150193/Amenagement_espaces_Photos9_n5vsvl.jpg",
+  AmenagementespacesPhotos6:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150185/Amenagement_espaces_Photos8_cnptqb.jpg",
+  AmenagementespacesPhotos7:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150151/Amenagement_espaces_Photos6_adhvjw.jpg",
+  AmenagementespacesPhotos8:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150159/Amenagement_espaces_Photos7_uzrcl2.jpg",
+  AmenagementespacesPhotos9:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150161/Amenagement_espaces_Photos14_wghdz7.heic",
+  AmenagementespacesPhotos10:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150120/Amenagement_espaces_Photos18_hqnwyn.heic",
+  AmenagementespacesPhotos11:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150116/Amenagement_espaces_Photos12_lt5nrd.jpg",
+  AmenagementespacesPhotos12:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150118/Amenagement_espaces_Photos11_kh7ddk.heic",
+  AmenagementespacesPhotos13:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150106/Amenagement_espaces_Photos10_kq859d.heic",
+  AmenagementespacesPhotos14:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150093/Amenagement_espaces_Photos16_i19l3x.jpg",
+  AmenagementespacesPhotos15:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150115/Amenagement_espaces_Photos15_2_czlwbw.heic",
+  AmenagementespacesPhotos16:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150090/Amenagement_espaces_Photos15_m54nq8.heic",
+  AmenagementespacesPhotos17:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150073/Amenagement_espaces_Photos2_t5fhsk.jpg",
+  AmenagementespacesPhotos18:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150071/Amenagement_espaces_Photos1_vwgobu.jpg",
 
-//decoràtion limineux
-coration_lumineuse_imge7:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757147369/decor%C3%A0tionlumineux1_rojtls.jpg",
-coration_lumineuse_imge8:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757147370/decor%C3%A0tionlumineux4_bg976q.jpg",
-coration_lumineuse_imge9:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757147367/decor%C3%A0tionlumineux2_nnxb5i.jpg",
-//coration_lumineuse_imge10:"",
-coration_lumineuse_imge5:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193414/D%C3%A9coration_lumineuse_imge5_o7ostr.jpg",
-coration_lumineuse_imge1:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193406/D%C3%A9coration_lumineuse_imge1_vsxbkn.jpg",
-coration_lumineuse_imge3:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193410/D%C3%A9coration_lumineuse_imge3_vazwfa.jpg",
-coration_lumineuse_imge2:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193410/D%C3%A9coration_lumineuse_imge2_cvpyei.jpg",
-coration_lumineuse_imge4:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755193411/D%C3%A9coration_lumineuse_imge4_f1vlny.jpg",
-coration_lumineuse_imge6:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1756130268/D%C3%A9coration_lumineuse_imge5lesgens_nvn0e7.jpg",
+  Pour_les_Family_day8:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196264/Pour_les_Family_day8_s0nrlm.jpg",
+  Pour_les_Family_day5:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195791/Pour_les_Family_day5_jnjkan.jpg",
+  Pour_les_Family_day4:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195770/Pour_les_Family_day4_t1kybg.jpg",
+  Pour_les_Family_day6:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195818/Pour_les_Family_day6_p2lniz.jpg",
+  Pour_les_Family_day1:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195750/Pour_les_Family_day1_wgq2tx.jpg",
+  Pour_les_Family_day9:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132704/Pour_les_Family_day2_ncovyg.jpg",
+  Pour_les_Family_day10:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132663/Pour_les_Family_day11_t7fxl6.jpg",
+  Pour_les_Family_day11:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132661/Pour_les_Family_day10_bac5cd.jpg",
+  Pour_les_Family_day12:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132661/Pour_les_Family_day9_xywid7.jpg",
+  Pour_les_Family_day13:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132651/Pour_les_Family_day7_jehah7.jpg",
 
-//Amenagement d'espaces Photos
-AmenagementespacesPhotos1:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150231/Amenagement_espaces_Photos17_nppzrx.jpg",
-AmenagementespacesPhotos2:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150204/Amenagement_espaces_Photos5_mb33ad.jpg",
-AmenagementespacesPhotos3:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150202/Amenagement_espaces_Photos13_odl6is.heic",
-AmenagementespacesPhotos4:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150195/WhatsApp_Image_2025-07-16_at_14.00.26_3_di6pcx.jpg",
-AmenagementespacesPhotos5:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150193/Amenagement_espaces_Photos9_n5vsvl.jpg",
-AmenagementespacesPhotos6:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150185/Amenagement_espaces_Photos8_cnptqb.jpg",
-AmenagementespacesPhotos7:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150151/Amenagement_espaces_Photos6_adhvjw.jpg",
-AmenagementespacesPhotos8:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150159/Amenagement_espaces_Photos7_uzrcl2.jpg",
-AmenagementespacesPhotos9:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150161/Amenagement_espaces_Photos14_wghdz7.heic",
-AmenagementespacesPhotos10:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150120/Amenagement_espaces_Photos18_hqnwyn.heic",
-AmenagementespacesPhotos11:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150116/Amenagement_espaces_Photos12_lt5nrd.jpg",
-AmenagementespacesPhotos12:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150118/Amenagement_espaces_Photos11_kh7ddk.heic",
-AmenagementespacesPhotos13:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150106/Amenagement_espaces_Photos10_kq859d.heic",
-AmenagementespacesPhotos14:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150093/Amenagement_espaces_Photos16_i19l3x.jpg",
-AmenagementespacesPhotos15:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150115/Amenagement_espaces_Photos15_2_czlwbw.heic",
-AmenagementespacesPhotos16:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150090/Amenagement_espaces_Photos15_m54nq8.heic",
-AmenagementespacesPhotos17:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150073/Amenagement_espaces_Photos2_t5fhsk.jpg",
-AmenagementespacesPhotos18:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1757150071/Amenagement_espaces_Photos1_vwgobu.jpg",
+  building1:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405134/building1_t0bm3a.jpg",
+  building2:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405134/WhatsApp_Image_2025-11-27_at_13.01.06_2_qjym9r.jpg",
+  building3:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405133/WhatsApp_Image_2025-11-27_at_13.01.06_1_temjkp.jpg",
+  building4:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405133/WhatsApp_Image_2025-11-27_at_13.01.06_twxlu1.jpg",
+  building5:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405132/WhatsApp_Image_2025-11-27_at_13.01.07_vnb6zn.jpg",
+  building6:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405131/WhatsApp_Image_2025-11-27_at_13.01.05_thnoc9.jpg",
+  building7:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405129/WhatsApp_Image_2025-11-27_at_13.01.04_psm0zs.jpg",
+  building8:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405127/WhatsApp_Image_2025-11-27_at_13.01.04_1_afnfed.jpg",
+  building9:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405116/WhatsApp_Image_2025-11-27_at_13.01.02_1_uryftf.jpg",
+  building10:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405116/WhatsApp_Image_2025-11-27_at_13.01.02_t0owux.jpg",
+  building11:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405116/WhatsApp_Image_2025-11-27_at_13.01.03_oylwel.jpg",
+  building12:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405115/WhatsApp_Image_2025-11-27_at_13.01.01_1_dofdw7.jpg",
+  building13:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405113/WhatsApp_Image_2025-11-27_at_13.01.01_crjb57.jpg",
+  building14:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405112/WhatsApp_Image_2025-11-27_at_13.00.59_1_gjdwtr.jpg",
+  building15:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405111/WhatsApp_Image_2025-11-27_at_13.01.00_1_agzrou.jpg",
+  building16:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405111/WhatsApp_Image_2025-11-27_at_13.00.59_rhmfqh.jpg",
+  building17:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405111/WhatsApp_Image_2025-11-27_at_13.01.00_s64f6n.jpg",
+  building18:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405107/WhatsApp_Image_2025-11-27_at_13.00.56_1_niqziy.jpg",
+  building19:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405104/WhatsApp_Image_2025-11-27_at_13.00.55_w8swmb.jpg",
+  building20:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405104/WhatsApp_Image_2025-11-27_at_13.00.58_adpxyt.jpg",
 
- 
-Pour_les_Family_day8: 'https://res.cloudinary.com/dueu8nf5j/image/upload/v1755196264/Pour_les_Family_day8_s0nrlm.jpg',
-Pour_les_Family_day5: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195791/Pour_les_Family_day5_jnjkan.jpg",
-Pour_les_Family_day4:'https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195770/Pour_les_Family_day4_t1kybg.jpg',
-Pour_les_Family_day6:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195818/Pour_les_Family_day6_p2lniz.jpg",
-Pour_les_Family_day1:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1755195750/Pour_les_Family_day1_wgq2tx.jpg",
-Pour_les_Family_day9:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132704/Pour_les_Family_day2_ncovyg.jpg",
-Pour_les_Family_day10:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132663/Pour_les_Family_day11_t7fxl6.jpg",
-Pour_les_Family_day11:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132661/Pour_les_Family_day10_bac5cd.jpg",
-Pour_les_Family_day12:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132661/Pour_les_Family_day9_xywid7.jpg",
-Pour_les_Family_day13:"https://res.cloudinary.com/dueu8nf5j/image/upload/v1756132651/Pour_les_Family_day7_jehah7.jpg",
+  building21:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405103/WhatsApp_Image_2025-11-27_at_13.00.58_1_lm1qju.jpg",
+  building22:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405100/WhatsApp_Image_2025-11-27_at_13.00.57_xdckcf.jpg",
+  building23:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405099/WhatsApp_Image_2025-11-27_at_13.00.56_dtorei.jpg",
+  building24:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405097/WhatsApp_Image_2025-11-27_at_13.00.56_2_adyv7g.jpg",
+  building25:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405097/WhatsApp_Image_2025-11-27_at_13.00.54_1_w4sdsx.jpg",
+  building26:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405091/WhatsApp_Image_2025-11-27_at_13.00.54_icvxdn.jpg",
+  building27:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405094/building26_o4anq8.jpg",
+  building28:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405090/building24_a1qidw.jpg",
+  building29:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405090/building23_eo5jr3.jpg",
+  building30:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405090/building25_yccu9e.jpg",
+  building31:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405088/building20_ci54vx.jpg ",
+  building32:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405088/building22_rtfjah.jpg",
+  building33:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405088/building17_e9dptv.jpg",
+  building34:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405086/building21_g6jlju.jpg",
 
+  building35:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405084/building18_sug3tk.jpg",
+  building36:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405083/building19_ogcomc.jpg ",
+  building37:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405081/building6_fu89z2.jpg ",
+  building38:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405080/building13_ob131r.jpg",
+  building39:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405080/building13_ob131r.jpg ",
+  building40:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405080/building15_dvovvy.jpg ",
+  building41:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405079/building14_yvdbe6.jpg",
+  building42:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405079/building7_culjfs.jpg ",
+  building43:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405077/building12_dmvbd9.jpg",
+  building44:
+    " https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405073/building4_kvh7j6.jpg",
+  building45:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405073/building11_cmeo0h.jpg ",
+  building46:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405073/building5_bifj1c.jpg ",
+  building47:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405072/building9_husoyh.jpg ",
+  building48:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405072/building2_avcfw5.jpg ",
+  building49:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1764405071/building3_cmed5p.jpg ",
 
-logomkgservice: "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757275474/logomkfontbl%C3%A0nc_khrx92.png"
+  logomkgservice:
+    "https://res.cloudinary.com/dueu8nf5j/image/upload/v1757275474/logomkfontbl%C3%A0nc_khrx92.png",
 };
