@@ -16,7 +16,7 @@ const TestimonialContainer = styled.section`
   --accent: ${colors.accentGold};
 
   padding: clamp(0rem, 0vw, 0rem) 1rem clamp(0rem, 9vw, 2rem);
- 
+
   position: relative;
   overflow: hidden;
   min-height: 720px;
@@ -30,9 +30,16 @@ const TestimonialContainer = styled.section`
     position: absolute;
     inset: -30% -10% auto -10%;
     height: 52%;
-    background:
-      radial-gradient(600px 240px at 18% 30%, ${colors.accentGold}22, transparent 65%),
-      radial-gradient(560px 260px at 88% 5%, ${colors.accentTurquoise}15, transparent 60%);
+    background: radial-gradient(
+        600px 240px at 18% 30%,
+        ${colors.accentGold}22,
+        transparent 65%
+      ),
+      radial-gradient(
+        560px 260px at 88% 5%,
+        ${colors.accentTurquoise}15,
+        transparent 60%
+      );
     pointer-events: none;
     z-index: 0;
   }
@@ -42,9 +49,16 @@ const TestimonialContainer = styled.section`
     position: absolute;
     inset: auto -10% -30% -10%;
     height: 48%;
-    background:
-      radial-gradient(560px 220px at 12% 72%, ${colors.secondary}10, transparent 70%),
-      radial-gradient(520px 220px at 92% 82%, ${colors.primary}0d, transparent 70%);
+    background: radial-gradient(
+        560px 220px at 12% 72%,
+        ${colors.secondary}10,
+        transparent 70%
+      ),
+      radial-gradient(
+        520px 220px at 92% 82%,
+        ${colors.primary}0d,
+        transparent 70%
+      );
     pointer-events: none;
     z-index: 0;
   }
@@ -68,7 +82,7 @@ const Title = styled.h2`
   position: relative;
   display: inline-block;
   padding-bottom: 1.5rem;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 
   .barre-animation {
     display: block;
@@ -78,7 +92,11 @@ const Title = styled.h2`
     bottom: 0;
     height: 4px;
     width: 0;
-    background: linear-gradient(90deg, ${colors.accentGold} 0%, ${colors.secondary} 100%);
+    background: linear-gradient(
+      90deg,
+      ${colors.accentGold} 0%,
+      ${colors.secondary} 100%
+    );
     border-radius: 3px;
   }
 `;
@@ -122,15 +140,15 @@ const AuthorImage = styled(motion.img)`
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 2rem;
- // border: 1px solid ${colors.white};
+  // border: 1px solid ${colors.white};
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   filter: grayscale(10%);
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   z-index: 2;
 
-  &:hover { 
-    filter: grayscale(0%); 
+  &:hover {
+    filter: grayscale(0%);
     transform: scale(1.05);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
   }
@@ -151,11 +169,11 @@ const QuoteContainer = styled(motion.div)`
   background: var(--card-bg);
   padding: clamp(2rem, 4vw, 3rem);
   border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
   position: relative;
   max-width: 900px;
   margin: 0 auto;
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 
   &::before {
     content: "";
@@ -167,7 +185,7 @@ const QuoteContainer = styled(motion.div)`
     height: 20px;
     background: var(--card-bg);
     border-radius: 3px;
-    box-shadow: -2px -2px 5px rgba(0,0,0,0.05);
+    box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.05);
     z-index: 1;
   }
 `;
@@ -250,7 +268,7 @@ const NavButton = styled.button`
   place-items: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   pointer-events: auto;
 
   &:hover {
@@ -290,7 +308,8 @@ const Dot = styled.button`
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: ${({ $active }) => ($active ? colors.accentGold : "rgba(255,255,255,0.5)")};
+  background: ${({ $active }) =>
+    $active ? colors.accentGold : "rgba(255,255,255,0.5)"};
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -312,7 +331,7 @@ const Dot = styled.button`
 
   &:hover {
     transform: scale(1.2);
-    
+
     &::after {
       transform: scale(1);
     }
@@ -366,7 +385,7 @@ const Temoignage = () => {
     imagess?.gpc_logo,
     imagess?.orange_logo,
     imagess?.sobragui_logo,
-    imagess?.gavalan_logo
+    imagess?.gavalan_logo,
   ].filter(Boolean);
 
   const testimonials = [
@@ -374,26 +393,29 @@ const Temoignage = () => {
       author: "Naroumbah Kourouma",
       role: "Responsable Communication – Chez AOD-AVOCATS",
       text: "MK Global Services nous a accompagnés sur une tournée de street marketing à Conakry. Équipe réactive, visibilité immédiate en points chauds et reporting clair. On a constaté une hausse nette du trafic dès la première semaine.",
-      image: imagess?.naroumb || imagess?.evenement || fallback
+      image: imagess?.naroumb || imagess?.evenement || fallback,
     },
+    
     {
       author: "Alpha ousmane Diallo",
       role: "Directeur  – Chez TIPTAMCode",
       text: "De la conception à l'installation, tout a été sécurisé : flux visiteurs, accessibilité, matériaux durables. Le rendu final a dépassé nos attentes et a renforcé l'image de marque de notre site.",
-      image: imagess?.àlphà || imagess?.amenagement_exterieux0 || fallback
+      image: imagess?.àlphà || imagess?.amenagement_exterieux0 || fallback,
     },
+
     {
       author: "Paul lamah",
-      role: "Cheffe de projet",
+      role: "Chef de projet",
       text: "Un décor lumineux élégant, réutilisable et optimisé en consommation électrique. L'équipe MKGS a su marier esthétique et contraintes techniques sans aucune surprise côté budget.",
-      image: imagess?.paul || imagess?.coration_lumineuse_imge5 || fallback
+      image: imagess?.paul || imagess?.coration_lumineuse_imge5 || fallback,
     },
+
     {
-      author: "Mamadou Alpha Bah",
+      author: "Abdoulaye keita",
       role: "Investisseur",
       text: "Accompagnement complet : étude de marché, partenaires locaux, cadre juridique. Leur réseau et leur suivi nous ont permis de structurer l'opération en un temps record.",
-      image: imagess?.abdoulayeavoc || imagess?.businesskey || fallback
-    }
+      image: imagess?.abdoulayeavoc || imagess?.businesskey || fallback,
+    },
   ];
 
   useEffect(() => {
@@ -413,7 +435,9 @@ const Temoignage = () => {
 
   const handlePrev = () => {
     setDirection(-1);
-    setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrent(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   const goToTestimonial = (index) => {
@@ -422,31 +446,31 @@ const Temoignage = () => {
   };
 
   const variants = {
-    enter: (direction) => ({ 
-      x: direction > 0 ? "100%" : "-100%", 
+    enter: (direction) => ({
+      x: direction > 0 ? "100%" : "-100%",
       opacity: 0,
-      rotateY: direction > 0 ? 20 : -20
+      rotateY: direction > 0 ? 20 : -20,
     }),
     center: {
       x: 0,
       opacity: 1,
       rotateY: 0,
-      transition: { 
-        duration: 0.8, 
+      transition: {
+        duration: 0.8,
         ease: [0.22, 1, 0.36, 1],
-        rotateY: { duration: 0.6 }
-      }
+        rotateY: { duration: 0.6 },
+      },
     },
     exit: (direction) => ({
       x: direction < 0 ? "100%" : "-100%",
       opacity: 0,
       rotateY: direction < 0 ? 20 : -20,
-      transition: { 
-        duration: 0.8, 
+      transition: {
+        duration: 0.8,
         ease: [0.22, 1, 0.36, 1],
-        rotateY: { duration: 0.6 }
-      }
-    })
+        rotateY: { duration: 0.6 },
+      },
+    }),
   };
 
   const imageVariants = {
@@ -455,12 +479,12 @@ const Temoignage = () => {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: { 
-        delay: 0.3, 
-        duration: 0.7, 
-        ease: [0.22, 1, 0.36, 1] 
-      }
-    }
+      transition: {
+        delay: 0.3,
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
   };
 
   const quoteVariants = {
@@ -468,24 +492,24 @@ const Temoignage = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { 
+      transition: {
         delay: 0.5,
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
   };
 
   return (
     <TestimonialContainer ref={containerRef}>
-      <Header 
-        as={motion.div} 
-        initial={{ opacity: 0, y: -20 }} 
-        whileInView={{ 
-          opacity: 1, 
+      <Header
+        as={motion.div}
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{
+          opacity: 1,
           y: 0,
-          transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
-        }} 
+          transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+        }}
         viewport={{ once: true, margin: "-100px" }}
       >
         <Title>
@@ -498,8 +522,9 @@ const Temoignage = () => {
           />
         </Title>
         <Subtitle>
-          Aménagements, activations commerciales, décoration lumineuse et courtage&nbsp;:
-          découvrez les retours de nos clients sur la qualité et l'efficacité de nos solutions.
+          Aménagements, activations commerciales, décoration lumineuse et
+          courtage&nbsp;: découvrez les retours de nos clients sur la qualité et
+          l'efficacité de nos solutions.
         </Subtitle>
       </Header>
 
@@ -517,7 +542,8 @@ const Temoignage = () => {
             onDragStart={() => setIsDragging(true)}
             onDragEnd={(_, { offset, velocity }) => {
               setIsDragging(false);
-              const swipe = Math.abs(offset.x) > 100 || Math.abs(velocity.x) > 500;
+              const swipe =
+                Math.abs(offset.x) > 100 || Math.abs(velocity.x) > 500;
               if (swipe) {
                 offset.x > 0 || velocity.x > 0 ? handlePrev() : handleNext();
               }
@@ -530,7 +556,9 @@ const Temoignage = () => {
               initial="hidden"
               animate="visible"
               variants={imageVariants}
-              onError={(e) => { e.currentTarget.src = fallback; }}
+              onError={(e) => {
+                e.currentTarget.src = fallback;
+              }}
             />
 
             <QuoteContainer
@@ -581,13 +609,13 @@ const Temoignage = () => {
               src={logo}
               alt={`Client ${index + 1}`}
               initial={{ opacity: 0, y: 10 }}
-              whileInView={{ 
-                opacity: 0.7, 
+              whileInView={{
+                opacity: 0.7,
                 y: 0,
-                transition: { 
+                transition: {
                   delay: 0.1 * index,
-                  duration: 0.5 
-                }
+                  duration: 0.5,
+                },
               }}
               viewport={{ once: true, margin: "0px 0px -50px 0px" }}
             />
