@@ -7,7 +7,6 @@
 // - modal en object-fit: contain (voir l’image en entier)
 //
 // NB: On ne touche pas à ta palette ni à tes animations existantes.
-
 import React, {
   useEffect,
   useMemo,
@@ -30,6 +29,7 @@ import {
   Search,
   ChevronsDown,
   ChevronsUp,
+  Download,
 } from "lucide-react";
 import colors from "../../Styles/colors";
 import { VENUES, FILTERS as RAW_FILTERS } from "./venuesSemyg";
@@ -125,6 +125,66 @@ const Header = styled.div`
   @media (max-width: 760px) {
     grid-template-columns: 1fr;
     gap: 0.5rem;
+  }
+`;
+
+/* ===== Catalogue Jeux & Attractions ===== */
+const CatalogueWrap = styled.div`
+  margin: 2rem auto 1rem;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid ${colors.primar}22;
+  border-radius: 14px;
+  background: ${colors.white};
+  max-width: 640px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+
+  @media (max-width: 480px) {
+    padding: 1rem 1.2rem;
+  }
+`;
+
+const CatalogTitle = styled.h3`
+  margin: 0;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: ${colors.primary};
+`;
+
+const CatalogDesc = styled.p`
+  margin: 0;
+  text-align: center;
+  color: ${colors.black};
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.55;
+  max-width: 540px;
+`;
+
+const CatalogButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  color: ${colors.white};
+  background: linear-gradient(
+    135deg,
+    ${colors.accentGold} 55%,
+    ${colors.secondary} 100%
+  );
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 12px 26px ${colors.accentGold}55;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px ${colors.accentGold}66;
   }
 `;
 
@@ -684,22 +744,55 @@ const whatsappNumber = "+224625494848";
 
 /* =================== Component =================== */
 const Lesservices = () => {
+  // core states
   const [filter, setFilter] = useState(
-    "Décoration Lumineuses Exterieures & interieures"
+    // default first raw filter if exists, else "all"
+    RAW_FILTERS && RAW_FILTERS.length ? RAW_FILTERS[0] : "Tous"
   );
   const [search, setSearch] = useState("");
-  const [open, setOpen] = useState(false);
-  const [current, setCurrent] = useState(0);
+  const [open, setOpen] = useState(false); // lightbox open
+  const [current, setCurrent] = useState(0); // index in visible data
   const [zoom, setZoom] = useState(1);
   const [dragging, setDragging] = useState(false);
-  const [infoIdx, setInfoIdx] = useState(null);
-  const [expanded, setExpanded] = useState(false); // “voir plus / réduire”
+  const [infoIdx, setInfoIdx] = useState(null); // context menu info
+  const [expanded, setExpanded] = useState(false); // voir plus / réduire for cards
+  const [showMoreFilters, setShowMoreFilters] = useState(false); // filters list collapse
 
   const gridRef = useRef(null);
   const columns = useColumns(gridRef);
-  const maxRows = 2;
+  const maxRows = 3; // show up to 3 rows per your request
 
-  // Close with ESC
+  // derived filters (search in filter names)
+  const FILTERS = useMemo(() => {
+    if (!search.trim()) return RAW_FILTERS;
+    const q = search.toLowerCase();
+    return RAW_FILTERS.filter((f) => f.toLowerCase().includes(q));
+  }, [search]);
+
+  const hasFilterMatch = FILTERS.length > 0;
+
+  // venues for chosen filter
+  const categoryData = useMemo(
+    () =>
+      filter
+        ? VENUES.filter((v) => {
+            // allow filter to be exact match of type OR if filter equals 'Tous' show all
+            if (filter === "Tous" || filter.toLowerCase() === "tous") return true;
+            return v.type === filter;
+          })
+        : VENUES,
+    [filter]
+  );
+
+  const isMaintenance = hasFilterMatch && categoryData.length === 0;
+
+  // visible count (3 rows max, columns dynamic)
+  const visibleCount = expanded
+    ? categoryData.length
+    : Math.min(categoryData.length, columns * maxRows);
+  const data = categoryData.slice(0, visibleCount);
+
+  // keyboard ESC close
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") {
@@ -711,37 +804,19 @@ const Lesservices = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  // Recherche dans la liste des catégories (pas dans les cartes)
-  const FILTERS = useMemo(() => {
-    if (!search.trim()) return RAW_FILTERS;
-    const q = search.toLowerCase();
-    const list = RAW_FILTERS.filter((f) => f.toLowerCase().includes(q));
-    return list;
-  }, [search]);
+  // reset expanded on filter/search change
+  useEffect(() => {
+    setExpanded(false);
+  }, [filter, search]);
 
-  const hasFilterMatch = FILTERS.length > 0;
-
-  // Jeux de données par catégorie
-  const categoryData = useMemo(
-    () => VENUES.filter((v) => v.type === filter),
-    [filter]
-  );
-
-  // “Maintenance” si la catégorie existe mais aucune image
-  const isMaintenance = hasFilterMatch && categoryData.length === 0;
-
-  // Limiteur à 3 lignes (calculé selon colonnes observées)
-  const visibleCount = expanded
-    ? categoryData.length
-    : Math.min(categoryData.length, columns * maxRows);
-  const data = categoryData.slice(0, visibleCount);
-
+  // open modal
   const openModal = (index) => {
     setCurrent(index);
     setZoom(1);
     setOpen(true);
   };
 
+  // navigate modal images
   const navigateImage = (direction) => {
     setCurrent((prev) => {
       if (direction === "prev") {
@@ -755,10 +830,48 @@ const Lesservices = () => {
 
   const toggleZoom = useCallback(() => setZoom((z) => (z === 1 ? 1.5 : 1)), []);
 
-  // Reset “voir plus” quand on change de catégorie ou la recherche
-  useEffect(() => {
-    setExpanded(false);
-  }, [filter, search]);
+  // handle clicking a filter chip
+  const handleFilter = (f) => {
+    setFilter(f);
+    setSearch(""); // optional: clear search when filter chosen
+  };
+
+  // Show more / reduce filters list
+  const renderFilterChips = () => {
+    const visible = showMoreFilters ? FILTERS : FILTERS.slice(0, 2);
+    return (
+      <>
+        {visible.map((f) => (
+          <Chip
+            key={f}
+            $active={filter === f}
+            onClick={() => handleFilter(f)}
+            whileTap={{ scale: 0.97 }}
+            aria-pressed={filter === f}
+            title={`Filtrer par ${f}`}
+          >
+            {f}
+          </Chip>
+        ))}
+        {FILTERS.length > 8 && (
+          <ShowMoreBtn
+            onClick={() => setShowMoreFilters((s) => !s)}
+            aria-expanded={showMoreFilters}
+          >
+            {showMoreFilters ? (
+              <>
+                Réduire <ChevronsUp size={16} />
+              </>
+            ) : (
+              <>
+                Voir plus <ChevronsDown size={16} />
+              </>
+            )}
+          </ShowMoreBtn>
+        )}
+      </>
+    );
+  };
 
   return (
     <Section>
@@ -776,12 +889,28 @@ const Lesservices = () => {
             <Overline>Nos services événementiels</Overline>
             <Title>Des prestations sur mesure pour chaque événement</Title>
             <Lead>
-            Décoration complet d'espaces, en passant par l'organisation de
+              Décoration complet d'espaces, en passant par l'organisation de
               colonies de vacances et de Family Days, nous proposons une gamme
               complète de services pour faire de votre événement un succès.
               Notre équipe expérimentée assure un accompagnement personnalisé et
               une exécution impeccable.
             </Lead>
+
+            {/* Catalogue block (kept simple, link to PDF in public/) */}
+            <CatalogueWrap>
+              <CatalogTitle>Catalogue Jeux & Attractions</CatalogTitle>
+
+              <CatalogDesc>
+                Téléchargez notre catalogue professionnel complet regroupant
+                l’ensemble des jeux, structures gonflables, attractions
+                événementielles et équipements disponibles pour location.
+              </CatalogDesc>
+
+              <CatalogButton href="/catalogues/Catalogue-Jeux-et-Attractions.pdf" download>
+                Télécharger le catalogue (PDF)
+                <Download size={18} />
+              </CatalogButton>
+            </CatalogueWrap>
 
             {/* Recherche + Catégories */}
             <FiltersWrap>
@@ -792,36 +921,22 @@ const Lesservices = () => {
                   placeholder="Rechercher une catégorie…"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
+                  aria-label="Rechercher une catégorie"
                 />
               </SearchBar>
 
-              <Filters>
-                {!hasFilterMatch && (
-                  <EmptyStrip>Catégorie inexistante.</EmptyStrip>
-                )}
-                {hasFilterMatch &&
-                  FILTERS.map((f) => (
-                    <Chip
-                      key={f}
-                      $active={filter === f}
-                      onClick={() => setFilter(f)}
-                      whileTap={{ scale: 0.97 }}
-                    >
-                      {f}
-                    </Chip>
-                  ))}
-              </Filters>
+              <Filters aria-label="Filtrer les catégories">{!hasFilterMatch ? <EmptyStrip>Catégorie inexistante.</EmptyStrip> : renderFilterChips()}</Filters>
             </FiltersWrap>
           </TitleWrap>
         </Header>
 
-        {/* Etats : maintenance / data */}
+        {/* States: maintenance / data */}
         {isMaintenance ? (
           <EmptyStrip>⚠️ Cette catégorie est en maintenance.</EmptyStrip>
         ) : (
           <>
             {/* Grid */}
-            <Grid ref={gridRef}>
+            <Grid ref={gridRef} role="list" aria-live="polite">
               {data.map((v, i) => {
                 const img = cld(v.img, 1000);
                 return (
@@ -835,6 +950,7 @@ const Lesservices = () => {
                       e.preventDefault();
                       setInfoIdx(i);
                     }}
+                    role="listitem"
                   >
                     <Img
                       src={img.src}
@@ -842,7 +958,7 @@ const Lesservices = () => {
                       sizes="(max-width:540px) 100vw, (max-width:900px) 50vw, 33vw"
                       alt={v.label}
                       initial={{ scale: 1 }}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.03 }}
                       transition={{ duration: 0.35 }}
                       loading="lazy"
                       decoding="async"
@@ -857,7 +973,14 @@ const Lesservices = () => {
                       </CardTitle>
                       <CardType>{v.type}</CardType>
                     </CardContent>
-                    <ActionButton aria-label="Voir en détail">
+
+                    <ActionButton
+                      aria-label={`Ouvrir ${v.label} dans la lightbox`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openModal(i);
+                      }}
+                    >
                       <ZoomIn size={18} />
                     </ActionButton>
                   </Card>
@@ -865,10 +988,13 @@ const Lesservices = () => {
               })}
             </Grid>
 
-            {/* Voir plus / Réduire (si besoin) */}
+            {/* Voir plus / Réduire (if category has more) */}
             {categoryData.length > columns * maxRows && (
               <ShowMoreWrap>
-                <ShowMoreBtn onClick={() => setExpanded((s) => !s)}>
+                <ShowMoreBtn
+                  onClick={() => setExpanded((s) => !s)}
+                  aria-expanded={expanded}
+                >
                   {expanded ? (
                     <>
                       <ChevronsUp size={18} />
@@ -895,6 +1021,8 @@ const Lesservices = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setOpen(false)}
+            role="dialog"
+            aria-modal="true"
           >
             <Modal
               initial={{ scale: 0.96, y: 18, opacity: 0 }}
@@ -902,24 +1030,15 @@ const Lesservices = () => {
               exit={{ scale: 0.96, y: 18, opacity: 0 }}
               transition={{ type: "spring", stiffness: 320, damping: 24 }}
               onClick={(e) => e.stopPropagation()}
-              role="dialog"
-              aria-modal="true"
             >
               <ModalControls>
                 <ControlButton
                   onClick={() => setZoom((z) => (z === 1 ? 1.5 : 1))}
                   aria-label={zoom === 1 ? "Zoomer" : "Dézoomer"}
                 >
-                  {zoom === 1 ? (
-                    <Maximize2 size={20} />
-                  ) : (
-                    <Minimize2 size={20} />
-                  )}
+                  {zoom === 1 ? <Maximize2 size={20} /> : <Minimize2 size={20} />}
                 </ControlButton>
-                <ControlButton
-                  onClick={() => setOpen(false)}
-                  aria-label="Fermer"
-                >
+                <ControlButton onClick={() => setOpen(false)} aria-label="Fermer">
                   <X size={20} />
                 </ControlButton>
               </ModalControls>
@@ -992,7 +1111,7 @@ const Lesservices = () => {
         )}
       </AnimatePresence>
 
-      {/* Info Panel (clic droit) */}
+      {/* Info Panel (context menu - right click) */}
       <AnimatePresence>
         {infoIdx !== null && data[infoIdx] && (
           <InfoPanel
@@ -1007,41 +1126,20 @@ const Lesservices = () => {
             </InfoHeader>
             <InfoBody>
               <p>{data[infoIdx].description}</p>
-              <p>
-                Idéal pour : inaugurations, team building, showrooms, soirées
-                VIP.
-              </p>
-              <p>
-                Gestion technique complète (sécurité, logistique,
-                autorisations).
-              </p>
-              <p>
-                Options durables disponibles (décors réutilisables, éclairage
-                LED).
-              </p>
+              <p>Idéal pour : inaugurations, team building, showrooms, soirées VIP.</p>
+              <p>Gestion technique complète (sécurité, logistique, autorisations).</p>
+              <p>Options durables disponibles (décors réutilisables, éclairage LED).</p>
 
               <ContactButtons>
-                <ContactButton href={`tel:${whatsappNumber}`}>
-                  Appeler
-                </ContactButton>
-                <ContactButton
-                  href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`}
-                >
-                  WhatsApp
-                </ContactButton>
+                <ContactButton href={`tel:${whatsappNumber}`}>Appeler</ContactButton>
+                <ContactButton href={`https://wa.me/${whatsappNumber.replace(/\D/g, "")}`}>WhatsApp</ContactButton>
               </ContactButtons>
             </InfoBody>
             <InfoFooter>
-              <CTAButton
-                href="/contact"
-                whileHover={{ y: -2, scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
+              <CTAButton href="/contact" whileHover={{ y: -2, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 Demander un devis
               </CTAButton>
-              <SecondaryButton onClick={() => setInfoIdx(null)}>
-                Fermer
-              </SecondaryButton>
+              <SecondaryButton onClick={() => setInfoIdx(null)}>Fermer</SecondaryButton>
             </InfoFooter>
           </InfoPanel>
         )}
