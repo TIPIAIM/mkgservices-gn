@@ -170,12 +170,12 @@ const CatalogButton = styled.a`
   align-items: center;
   gap: 0.55rem;
   padding: 0.75rem 1.2rem;
-  border-radius: 999px;
+  border-radius: 12px 0 12px 0;
   color: ${colors.white};
   background: linear-gradient(
     135deg,
-    ${colors.accentGold} 55%,
-    ${colors.secondary} 100%
+    ${colors.primaryBlue} 55%,
+    ${colors.secondary} 50%
   );
   text-decoration: none;
   font-weight: 900;
@@ -183,6 +183,11 @@ const CatalogButton = styled.a`
   transition: all 0.2s ease;
 
   &:hover {
+   background: linear-gradient(
+    135deg,
+    ${colors.secondary} 55%,
+    ${colors.primaryBlue} 50%
+  );
     transform: translateY(-2px);
     box-shadow: 0 14px 30px ${colors.accentGold}66;
   }
@@ -906,7 +911,7 @@ const Lesservices = () => {
                 événementielles et équipements disponibles pour location.
               </CatalogDesc>
 
-              <CatalogButton href="/catalogues/Catalogue-Jeux-et-Attractions.pdf" download>
+              <CatalogButton href="/Catalogue-jeux.pdf" download>
                 Télécharger le catalogue (PDF)
                 <Download size={18} />
               </CatalogButton>
